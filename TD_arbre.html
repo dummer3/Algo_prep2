@@ -1,0 +1,1090 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-03-28 dim. 16:53 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="cliquot" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org36480e9">1. Exo n°1</a>
+<ul>
+<li><a href="#org089866b">1.1. Question n°1</a>
+<ul>
+<li><a href="#org5e161d5">1.1.1. Implémentation</a></li>
+<li><a href="#org8cc43ad">1.1.2. CreerArbre O(1)</a></li>
+<li><a href="#org77a3929">1.1.3. Racine O(1) vu qu'on stock son index</a></li>
+<li><a href="#org3d7feb8">1.1.4. FilsNoeud O(n)</a></li>
+<li><a href="#org0090fb2">1.1.5. SontFreres O(1)</a></li>
+<li><a href="#orgc189219">1.1.6. Hauteur O(\(n^2\))</a></li>
+<li><a href="#orgd3f30e0">1.1.7. SousArbre \(O(n^2)\)</a></li>
+</ul>
+</li>
+<li><a href="#orgdb5d605">1.2. Question n°2</a></li>
+</ul>
+</li>
+<li><a href="#org4f428b7">2. Exo n°2</a>
+<ul>
+<li><a href="#orgbfbd61a">2.1. Question n°1</a></li>
+<li><a href="#org8b883bb">2.2. Question n°2</a></li>
+<li><a href="#orgc0131cf">2.3. Question n°3</a></li>
+<li><a href="#orgf5859dc">2.4. Question n°4</a></li>
+<li><a href="#org8855da8">2.5. Question n°5</a>
+<ul>
+<li><a href="#org1c8e909">2.5.1. construire-tas O(1)</a></li>
+<li><a href="#org761759c">2.5.2. inserer O(log(n))</a></li>
+<li><a href="#orgb9ef2d3">2.5.3. entasser-min O(h) = O(log(n))</a></li>
+<li><a href="#orga3768a2">2.5.4. minimum O(1)</a></li>
+<li><a href="#org1c71a71">2.5.5. remplacerCle O(h(x)) ou O(h-h(x))</a></li>
+<li><a href="#org547da7c">2.5.6. retirerElement O(h)</a></li>
+</ul>
+</li>
+<li><a href="#org2f822b1">2.6. Question n°6</a></li>
+<li><a href="#orgd3bd641">2.7. Question n°7 O(n*log(n))</a></li>
+<li><a href="#org860d81d">2.8. Question n°8</a></li>
+</ul>
+</li>
+<li><a href="#org1dc67ba">3. Exo n° 3</a>
+<ul>
+<li><a href="#org173b751">3.1. Question n° 1</a></li>
+<li><a href="#orge8c3266">3.2. Question n°2</a></li>
+<li><a href="#org36a191e">3.3. Question n°3</a></li>
+</ul>
+</li>
+<li><a href="#org654fa70">4. Exo n°4</a>
+<ul>
+<li><a href="#org96492aa">4.1. Question n°1</a></li>
+<li><a href="#orgcaeaf1c">4.2. Question n°2</a></li>
+<li><a href="#orgc86c578">4.3. Question n°3</a></li>
+<li><a href="#org102f33e">4.4. Question n°4</a></li>
+<li><a href="#orgb70cd77">4.5. Question n°5</a></li>
+</ul>
+</li>
+<li><a href="#org9037221">5. Exo n°5</a>
+<ul>
+<li><a href="#orga201c17">5.1. Question n°1</a>
+<ul>
+<li><a href="#orgef57c0a">5.1.1. 12345678 et 53247681 :</a></li>
+<li><a href="#org01013a4">5.1.2. 12345678 et 432527861</a></li>
+</ul>
+</li>
+<li><a href="#org2e3d195">5.2. Question n°2</a>
+<ul>
+<li><a href="#org16a5ce4">5.2.1. Construction Arbre :</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org36480e9" class="outline-2">
+<h2 id="org36480e9"><span class="section-number-2">1</span> Exo n°1</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org089866b" class="outline-3">
+<h3 id="org089866b"><span class="section-number-3">1.1</span> Question n°1</h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-org5e161d5" class="outline-4">
+<h4 id="org5e161d5"><span class="section-number-4">1.1.1</span> Implémentation</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<p>
+Un arbre sera donc composé : 
+</p>
+<ul class="org-ul">
+<li>un tableau (tab)</li>
+<li>La taille du tableau.</li>
+<li>L'index/Valeur de la racine (sinon on pourrait le retrouver en parcourant le tableau à la recherche de la case contenant la valeur -1 (Soit une comp. temp. O(n) au pire cas, n étant la taille du tableau)).</li>
+<li>Les noeuds seront donc représentés par leur index.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org8cc43ad" class="outline-4">
+<h4 id="org8cc43ad"><span class="section-number-4">1.1.2</span> CreerArbre O(1)</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #7CB8BB; font-weight: bold;">Arbre</span> <span style="color: #93E0E3;">CreerArbre</span><span style="color: #DCDCCC;">(</span><span style="color: #7CB8BB; font-weight: bold;">int</span> <span style="color: #DFAF8F;">taille</span><span style="color: #DCDCCC;">)</span>
+<span style="color: #DCDCCC;">{</span>
+  <span style="color: #7CB8BB; font-weight: bold;">Arbre</span> <span style="color: #DFAF8F;">a</span> = new Arbre<span style="color: #BFEBBF;">()</span>;
+  a.tab = <span style="color: #7CB8BB; font-weight: bold;">int</span><span style="color: #BFEBBF;">[</span>taille<span style="color: #BFEBBF;">]</span>;
+  a.taille = taille;
+  a.racine = -1; <span style="color: #5F7F5F;">//</span><span style="color: #7F9F7F;">On ne sait pas encore l'index de la racine lors de l'initialisation de l'arbre</span>
+  <span style="color: #F0DFAF; font-weight: bold;">return</span> a;
+<span style="color: #DCDCCC;">}</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org77a3929" class="outline-4">
+<h4 id="org77a3929"><span class="section-number-4">1.1.3</span> Racine O(1) vu qu'on stock son index</h4>
+<div class="outline-text-4" id="text-1-1-3">
+<div class="org-src-container">
+<pre class="src src-C">  <span style="color: #7CB8BB; font-weight: bold;">int</span> <span style="color: #93E0E3;">Racine</span><span style="color: #DCDCCC;">(</span><span style="color: #7CB8BB; font-weight: bold;">Arbre</span> <span style="color: #DFAF8F;">a</span><span style="color: #DCDCCC;">)</span>
+<span style="color: #DCDCCC;">{</span>
+  <span style="color: #F0DFAF; font-weight: bold;">return</span> a.racine;
+<span style="color: #DCDCCC;">}</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3d7feb8" class="outline-4">
+<h4 id="org3d7feb8"><span class="section-number-4">1.1.4</span> FilsNoeud O(n)</h4>
+<div class="outline-text-4" id="text-1-1-4">
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #7CB8BB; font-weight: bold;">Liste</span> <span style="color: #93E0E3;">FilsNoeud</span><span style="color: #DCDCCC;">(</span><span style="color: #7CB8BB; font-weight: bold;">Arbre</span> <span style="color: #DFAF8F;">a</span>,<span style="color: #7CB8BB; font-weight: bold;">int</span> <span style="color: #DFAF8F;">indexNoeud</span><span style="color: #DCDCCC;">)</span>
+<span style="color: #DCDCCC;">{</span>
+  <span style="color: #7CB8BB; font-weight: bold;">Liste</span> <span style="color: #DFAF8F;">l</span> = CreerListe<span style="color: #BFEBBF;">()</span>;
+  <span style="color: #F0DFAF; font-weight: bold;">for</span> <span style="color: #BFEBBF;">(</span><span style="color: #7CB8BB; font-weight: bold;">int</span> <span style="color: #DFAF8F;">i</span> = 0; i &lt; a.taille; i ++<span style="color: #BFEBBF;">)</span>
+    <span style="color: #BFEBBF;">{</span>
+      <span style="color: #F0DFAF; font-weight: bold;">if</span><span style="color: #D0BF8F;">(</span>a.tab<span style="color: #93E0E3;">[</span>i<span style="color: #93E0E3;">]</span> == indexNoeud<span style="color: #D0BF8F;">)</span>
+        <span style="color: #D0BF8F;">{</span>
+          l.insererTeteListe<span style="color: #93E0E3;">(</span>i<span style="color: #93E0E3;">)</span>;
+        <span style="color: #D0BF8F;">}</span>
+    <span style="color: #BFEBBF;">}</span>
+  <span style="color: #F0DFAF; font-weight: bold;">return</span> l;
+<span style="color: #DCDCCC;">}</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0090fb2" class="outline-4">
+<h4 id="org0090fb2"><span class="section-number-4">1.1.5</span> SontFreres O(1)</h4>
+<div class="outline-text-4" id="text-1-1-5">
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #7CB8BB; font-weight: bold;">bool</span> <span style="color: #93E0E3;">SontFreres</span><span style="color: #DCDCCC;">(</span><span style="color: #7CB8BB; font-weight: bold;">Arbre</span> <span style="color: #DFAF8F;">a</span>, <span style="color: #7CB8BB; font-weight: bold;">int</span> <span style="color: #DFAF8F;">noeud_x</span>, <span style="color: #7CB8BB; font-weight: bold;">int</span> <span style="color: #DFAF8F;">noeud_y</span><span style="color: #DCDCCC;">)</span>
+<span style="color: #DCDCCC;">{</span>
+  <span style="color: #F0DFAF; font-weight: bold;">return</span> a.tab<span style="color: #BFEBBF;">[</span>noued_x<span style="color: #BFEBBF;">]</span> == a.tab<span style="color: #BFEBBF;">[</span>noued_y<span style="color: #BFEBBF;">]</span>; 
+<span style="color: #DCDCCC;">}</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc189219" class="outline-4">
+<h4 id="orgc189219"><span class="section-number-4">1.1.6</span> Hauteur O(\(n^2\))</h4>
+<div class="outline-text-4" id="text-1-1-6">
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #7CB8BB; font-weight: bold;">int</span> <span style="color: #93E0E3;">Hauteur</span><span style="color: #DCDCCC;">(</span><span style="color: #7CB8BB; font-weight: bold;">Arbre</span> <span style="color: #DFAF8F;">a</span><span style="color: #DCDCCC;">)</span>
+<span style="color: #DCDCCC;">{</span>
+  <span style="color: #7CB8BB; font-weight: bold;">int</span> <span style="color: #DFAF8F;">h</span> = 0;
+  <span style="color: #F0DFAF; font-weight: bold;">for</span> <span style="color: #BFEBBF;">(</span><span style="color: #7CB8BB; font-weight: bold;">int</span> <span style="color: #DFAF8F;">i</span> = 0; i &lt; a.taille; i++<span style="color: #BFEBBF;">)</span>
+    <span style="color: #BFEBBF;">{</span>
+      <span style="color: #7CB8BB; font-weight: bold;">int</span> <span style="color: #DFAF8F;">noeudActuelle</span> = i;
+      <span style="color: #7CB8BB; font-weight: bold;">int</span> <span style="color: #DFAF8F;">pere</span> = a.tab<span style="color: #D0BF8F;">[</span>i<span style="color: #D0BF8F;">]</span>;
+      <span style="color: #7CB8BB; font-weight: bold;">int</span> <span style="color: #DFAF8F;">h_actuelle</span> = 0;
+      <span style="color: #F0DFAF; font-weight: bold;">while</span> <span style="color: #D0BF8F;">(</span>noeudActuelle != Racine<span style="color: #93E0E3;">(</span>a<span style="color: #93E0E3;">)</span><span style="color: #D0BF8F;">)</span>
+        <span style="color: #D0BF8F;">{</span>
+          noeudActuelle = pere;
+          pere = a.tab<span style="color: #93E0E3;">[</span>pere<span style="color: #93E0E3;">]</span>;
+          h_actuelle++;
+        <span style="color: #D0BF8F;">}</span>
+      <span style="color: #F0DFAF; font-weight: bold;">if</span><span style="color: #D0BF8F;">(</span>h_actuelle &gt; h<span style="color: #D0BF8F;">)</span>
+        <span style="color: #D0BF8F;">{</span>
+          h = h_actuelle;
+        <span style="color: #D0BF8F;">}</span>
+    <span style="color: #BFEBBF;">}</span>
+  <span style="color: #F0DFAF; font-weight: bold;">return</span> h;
+<span style="color: #DCDCCC;">}</span>  
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd3f30e0" class="outline-4">
+<h4 id="orgd3f30e0"><span class="section-number-4">1.1.7</span> SousArbre \(O(n^2)\)</h4>
+<div class="outline-text-4" id="text-1-1-7">
+<div class="org-src-container">
+<pre class="src src-C">    <span style="color: #7CB8BB; font-weight: bold;">Arbre</span> <span style="color: #93E0E3;">SousArbre</span><span style="color: #DCDCCC;">(</span><span style="color: #7CB8BB; font-weight: bold;">Arbre</span> <span style="color: #DFAF8F;">a</span>,<span style="color: #7CB8BB; font-weight: bold;">int</span> <span style="color: #DFAF8F;">noeud_x</span><span style="color: #DCDCCC;">)</span>
+  <span style="color: #DCDCCC;">{</span>
+    <span style="color: #7CB8BB; font-weight: bold;">Arbre</span> <span style="color: #DFAF8F;">b</span> = CreerArbre<span style="color: #BFEBBF;">(</span>a.taille<span style="color: #BFEBBF;">)</span> <span style="color: #5F7F5F;">// </span><span style="color: #7F9F7F;">Vu que les valeurs de nos noeuds sont repr&#233;sent&#233;es par leur index sur le tableau, on ne peut pas optimiser tant que &#231;a la taille du tableau, de plus si on veut travailler dessus apr&#232;s et qu'on raccourci la taille on pourra &#234;tre bloqu&#233; plus rapidement.</span>
+
+     <span style="color: #F0DFAF; font-weight: bold;">for</span> <span style="color: #BFEBBF;">(</span><span style="color: #7CB8BB; font-weight: bold;">int</span> <span style="color: #DFAF8F;">i</span> = 0; i &lt; a.taille; i++<span style="color: #BFEBBF;">)</span>
+      <span style="color: #BFEBBF;">{</span>
+        <span style="color: #7CB8BB; font-weight: bold;">int</span> noeudActuelle = i;
+        <span style="color: #7CB8BB; font-weight: bold;">int</span> <span style="color: #DFAF8F;">pere</span> = a.tab<span style="color: #D0BF8F;">[</span>i<span style="color: #D0BF8F;">]</span>;
+        <span style="color: #7CB8BB; font-weight: bold;">int</span> <span style="color: #DFAF8F;">sauv_pere</span> = pere;
+        <span style="color: #F0DFAF; font-weight: bold;">while</span> <span style="color: #D0BF8F;">(</span>noeudActuelle != noeud_x || noeudActuelle != racine<span style="color: #93E0E3;">(</span>a<span style="color: #93E0E3;">)</span><span style="color: #D0BF8F;">)</span>
+          <span style="color: #D0BF8F;">{</span>
+            noeudActuelle = pere;
+            pere = a.tab<span style="color: #93E0E3;">[</span>pere<span style="color: #93E0E3;">]</span>;
+          <span style="color: #D0BF8F;">}</span>
+      <span style="color: #F0DFAF; font-weight: bold;">if</span><span style="color: #D0BF8F;">(</span>i == noeud_x<span style="color: #D0BF8F;">)</span>
+        <span style="color: #D0BF8F;">{</span>
+          b.tab<span style="color: #93E0E3;">[</span>i<span style="color: #93E0E3;">]</span> = -1;
+        <span style="color: #D0BF8F;">}</span>
+      <span style="color: #F0DFAF; font-weight: bold;">else</span> <span style="color: #F0DFAF; font-weight: bold;">if</span><span style="color: #D0BF8F;">(</span>noeudActuelle == noeud_x<span style="color: #D0BF8F;">)</span>
+        <span style="color: #D0BF8F;">{</span>
+          b.tab<span style="color: #93E0E3;">[</span>i<span style="color: #93E0E3;">]</span> = sauv_pere;
+        <span style="color: #D0BF8F;">}</span>
+      <span style="color: #BFEBBF;">}</span>
+<span style="color: #F0DFAF; font-weight: bold;">return</span> b
+  <span style="color: #DCDCCC;">}</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdb5d605" class="outline-3">
+<h3 id="orgdb5d605"><span class="section-number-3">1.2</span> Question n°2</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+Si on utilise cette nouvelle implémentation, on aura (n est la taille de l'arbre): 
+</p>
+<ul class="org-ul">
+<li>toujours O(1) pour la création de l'arbre</li>
+<li>O(1) pour savoir si 2 noeuds sont frères (on compare juste les pères)</li>
+<li>O(i) pour la liste des fils : i étant le nbr de fils, pour cela il suffira de stocker dans une liste le premier fils du noeud, puis de récupérer le frère de son premier fils et ceux tant que frères n'est pas null.</li>
+<li>O(1) pour récupérer la racine (notre arbre sera composé que d'un unique noeud représentant la racine, il suffit donc de retourner cette variable)</li>
+<li>O(n) au pire cas &#x2013;&gt; O(h) pour la hauteur, h étant justement la hauteur de l'arbre, en effet il suffit d'incrémenter une variable tout en parcourant l'arbre de père en fils à l'aide d'une boucle while (la condition et si fils == null et dans ce cas la variable à comme valeur de base 0).</li>
+<li>O(n) au pire cas &#x2013;&gt; O(a) : a étant la taille du sous arbre souhaité. (On va devoir recopier dans un nouvelle arbre chaque noeud (qui seront eux aussi des copies pour éviter de modifier l'arbre original) avec une première boucle qui va récupérer chaque premier fils et pour chacun de ces noeuds, on va récupérer tous ses frères sans oublier le noeud x qui aura comme père -1).</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4f428b7" class="outline-2">
+<h2 id="org4f428b7"><span class="section-number-2">2</span> Exo n°2</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgbfbd61a" class="outline-3">
+<h3 id="orgbfbd61a"><span class="section-number-3">2.1</span> Question n°1</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+On a : 
+-8
+-3-&gt;8
+-3-&gt;(8 7)
+-3-&gt;(8-&gt;9 7)
+-3-&gt;(4-&gt;(9 8) 7)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8b883bb" class="outline-3">
+<h3 id="org8b883bb"><span class="section-number-3">2.2</span> Question n°2</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+On pourrait utiliser un tableau si on connait la taille max atteignable de notre tas min, cependant à la différence de la table PERE ou la valeur des noeuds était l'index, ici notre tas min peut avoir plusieurs fois la même valeur et donc nous allons être obligé de stocker à la fois le pere mais aussi la valeur du noeud, mais cela nous permet de mettre n'importe quel noeud dans n'importe quel case (on pourrait aussi stocker filsG et filsD mais dans ce cas on se rapproche plus de la question suivante).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc0131cf" class="outline-3">
+<h3 id="orgc0131cf"><span class="section-number-3">2.3</span> Question n°3</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+Vu qu'on ne connait pas la place prise par notre tas, utilisait un tableau statique serait une mauvaise idée vu que si notre tableau est trop petit, il faudra tout recopier dans un tableau plus grand (ce qui va prendre beaucoup de temps). Une meilleure solution serait de stocker dans le tas une seule Cellule (la racine), et chaque cellule à accès à son père, son filsG et son filsD (qui sont des cellules) et une valeur .
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf5859dc" class="outline-3">
+<h3 id="orgf5859dc"><span class="section-number-3">2.4</span> Question n°4</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+Type du dessus en rajoutant aussi le nombre de noeud (la taille) de la cellule et sa hauteur (pour bien avoir une complexité O(log(n)) pour l'insertion);
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8855da8" class="outline-3">
+<h3 id="org8855da8"><span class="section-number-3">2.5</span> Question n°5</h3>
+<div class="outline-text-3" id="text-2-5">
+</div>
+<div id="outline-container-org1c8e909" class="outline-4">
+<h4 id="org1c8e909"><span class="section-number-4">2.5.1</span> construire-tas O(1)</h4>
+<div class="outline-text-4" id="text-2-5-1">
+<div class="org-src-container">
+<pre class="src src-C">  <span style="color: #7CB8BB; font-weight: bold;">Tas</span> <span style="color: #93E0E3;">construire</span>-tas<span style="color: #DCDCCC;">()</span>
+<span style="color: #DCDCCC;">{</span>
+  <span style="color: #7CB8BB; font-weight: bold;">Tas</span> <span style="color: #DFAF8F;">t</span> = new Tas<span style="color: #BFEBBF;">()</span>;
+  t.racine.pere = -1; <span style="color: #5F7F5F;">// </span><span style="color: #7F9F7F;">pas de p&#232;re</span>
+  <span style="color: #F0DFAF; font-weight: bold;">return</span> t;
+<span style="color: #DCDCCC;">}</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org761759c" class="outline-4">
+<h4 id="org761759c"><span class="section-number-4">2.5.2</span> inserer O(log(n))</h4>
+<div class="outline-text-4" id="text-2-5-2">
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #7CB8BB; font-weight: bold;">Tas</span> <span style="color: #93E0E3;">inserer</span><span style="color: #DCDCCC;">(</span><span style="color: #7CB8BB; font-weight: bold;">Tas</span> <span style="color: #DFAF8F;">t</span>,<span style="color: #7CB8BB; font-weight: bold;">T</span> <span style="color: #DFAF8F;">val</span><span style="color: #DCDCCC;">)</span>
+<span style="color: #DCDCCC;">{</span>
+  <span style="color: #7CB8BB; font-weight: bold;">Cellule</span> <span style="color: #DFAF8F;">a</span> = t.racine;
+  <span style="color: #F0DFAF; font-weight: bold;">while</span> <span style="color: #BFEBBF;">(</span>FilsGauche<span style="color: #D0BF8F;">(</span>a<span style="color: #D0BF8F;">)</span> != null || FilsDroit<span style="color: #D0BF8F;">(</span>a<span style="color: #D0BF8F;">)</span> != null<span style="color: #BFEBBF;">)</span>
+    <span style="color: #BFEBBF;">{</span>
+      <span style="color: #7CB8BB; font-weight: bold;">Cellule</span> <span style="color: #DFAF8F;">g</span> = FilsGauche<span style="color: #D0BF8F;">(</span>a<span style="color: #D0BF8F;">)</span>;
+      <span style="color: #7CB8BB; font-weight: bold;">Cellule</span> <span style="color: #DFAF8F;">d</span> = FilsDroit<span style="color: #D0BF8F;">(</span>a<span style="color: #D0BF8F;">)</span>;
+
+      <span style="color: #F0DFAF; font-weight: bold;">if</span><span style="color: #D0BF8F;">(</span><span style="color: #93E0E3;">(</span>d.nbrNoeud == pow<span style="color: #9FC59F;">(</span>2,d.hauteur+1<span style="color: #9FC59F;">)</span>-1<span style="color: #93E0E3;">)</span> &amp;&amp; g.hauteur == d.hauteur<span style="color: #D0BF8F;">)</span>
+        <span style="color: #D0BF8F;">{</span>
+          a.nbrNoeud++;
+          a = FilsGauche<span style="color: #93E0E3;">(</span>a<span style="color: #93E0E3;">)</span>;
+        <span style="color: #D0BF8F;">}</span>
+      <span style="color: #F0DFAF; font-weight: bold;">else</span>
+        <span style="color: #D0BF8F;">{</span>
+          a.nbrNoeud++;
+          a = FilsDroit<span style="color: #93E0E3;">(</span>a<span style="color: #93E0E3;">)</span>;
+        <span style="color: #D0BF8F;">}</span>
+    <span style="color: #BFEBBF;">}</span>
+  a.nbrNoeud++;
+  a.hauteur++;
+  <span style="color: #7CB8BB; font-weight: bold;">Cellule</span> <span style="color: #DFAF8F;">h</span> = a;
+  <span style="color: #F0DFAF; font-weight: bold;">while</span><span style="color: #BFEBBF;">(</span>h.pere != null<span style="color: #BFEBBF;">)</span>
+    <span style="color: #BFEBBF;">{</span>
+      <span style="color: #F0DFAF; font-weight: bold;">if</span> <span style="color: #D0BF8F;">(</span>h.pere.hauteur &lt; h.hauteur +1<span style="color: #D0BF8F;">)</span>
+        <span style="color: #D0BF8F;">{</span>
+          h.pere.hauteur = h.hauteur+1;
+        <span style="color: #D0BF8F;">}</span>
+      h = h.pere;
+    <span style="color: #BFEBBF;">}</span>
+  <span style="color: #F0DFAF; font-weight: bold;">if</span><span style="color: #BFEBBF;">(</span>FilsGauche<span style="color: #D0BF8F;">(</span>a<span style="color: #D0BF8F;">)</span> == null<span style="color: #BFEBBF;">)</span>
+    <span style="color: #BFEBBF;">{</span>
+
+      a.filsGauche = CreerCellule<span style="color: #D0BF8F;">()</span>;
+      FilsGauche<span style="color: #D0BF8F;">(</span>a<span style="color: #D0BF8F;">)</span>.valeur = val+1; 
+      FilsGauche<span style="color: #D0BF8F;">(</span>a<span style="color: #D0BF8F;">)</span>.pere = a; 
+      remplacerCle<span style="color: #D0BF8F;">(</span>FilsGauche<span style="color: #93E0E3;">(</span>a<span style="color: #93E0E3;">)</span>,val<span style="color: #D0BF8F;">)</span>;
+    <span style="color: #BFEBBF;">}</span>
+  <span style="color: #F0DFAF; font-weight: bold;">else</span>
+    <span style="color: #BFEBBF;">{</span>
+      a.filsDroit = CreerCellule<span style="color: #D0BF8F;">()</span>;
+      FilsDroit<span style="color: #D0BF8F;">(</span>a<span style="color: #D0BF8F;">)</span>.valeur = val+1; 
+      FilsDroit<span style="color: #D0BF8F;">(</span>a<span style="color: #D0BF8F;">)</span>.pere = a; 
+      remplacerCle<span style="color: #D0BF8F;">(</span>FilsDroit<span style="color: #93E0E3;">(</span>a<span style="color: #93E0E3;">)</span>,val<span style="color: #D0BF8F;">)</span>;
+    <span style="color: #BFEBBF;">}</span>
+  <span style="color: #F0DFAF; font-weight: bold;">return</span> t;
+<span style="color: #DCDCCC;">}</span>  
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb9ef2d3" class="outline-4">
+<h4 id="orgb9ef2d3"><span class="section-number-4">2.5.3</span> entasser-min O(h) = O(log(n))</h4>
+<div class="outline-text-4" id="text-2-5-3">
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #7CB8BB; font-weight: bold;">Tas</span> <span style="color: #93E0E3;">entasserMin</span> <span style="color: #DCDCCC;">(</span><span style="color: #7CB8BB; font-weight: bold;">Tas</span> <span style="color: #DFAF8F;">t</span>,<span style="color: #7CB8BB; font-weight: bold;">cellule</span> <span style="color: #DFAF8F;">r</span><span style="color: #DCDCCC;">)</span> 
+<span style="color: #DCDCCC;">{</span>
+  <span style="color: #7CB8BB; font-weight: bold;">Cellule</span> <span style="color: #DFAF8F;">min</span>;
+  <span style="color: #7CB8BB; font-weight: bold;">Cellule</span> <span style="color: #DFAF8F;">g</span> = FilsGauche<span style="color: #BFEBBF;">(</span>r<span style="color: #BFEBBF;">)</span>;
+  <span style="color: #7CB8BB; font-weight: bold;">Cellule</span> <span style="color: #DFAF8F;">d</span> = FilsDroite<span style="color: #BFEBBF;">(</span>r<span style="color: #BFEBBF;">)</span>;
+  <span style="color: #F0DFAF; font-weight: bold;">if</span> <span style="color: #BFEBBF;">(</span>g != <span style="color: #BFEBBF;">NULL</span> &amp;&amp; g.valeur &lt;= r.valeur<span style="color: #BFEBBF;">)</span>
+    <span style="color: #BFEBBF;">{</span>
+      min = g;
+    <span style="color: #BFEBBF;">}</span>
+  <span style="color: #F0DFAF; font-weight: bold;">else</span>
+    <span style="color: #BFEBBF;">{</span>
+      min = r;
+    <span style="color: #BFEBBF;">}</span>
+  <span style="color: #F0DFAF; font-weight: bold;">if</span> <span style="color: #BFEBBF;">(</span>d != <span style="color: #BFEBBF;">NULL</span> and d.valeur &lt;= min.valeur<span style="color: #BFEBBF;">)</span>
+    <span style="color: #BFEBBF;">{</span>
+      min = d;
+    <span style="color: #BFEBBF;">}</span>
+  <span style="color: #F0DFAF; font-weight: bold;">if</span> <span style="color: #BFEBBF;">(</span>min != r<span style="color: #BFEBBF;">)</span>
+    <span style="color: #BFEBBF;">{</span>
+      <span style="color: #7CB8BB; font-weight: bold;">T</span> <span style="color: #DFAF8F;">tempo</span> = min.valeur;
+      min.valeur = r.valeur;
+      r.valeur = tempo;
+      entasserMin<span style="color: #D0BF8F;">(</span>t,min<span style="color: #D0BF8F;">)</span>;
+    <span style="color: #BFEBBF;">}</span>
+  <span style="color: #F0DFAF; font-weight: bold;">return</span> t;
+<span style="color: #DCDCCC;">}</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga3768a2" class="outline-4">
+<h4 id="orga3768a2"><span class="section-number-4">2.5.4</span> minimum O(1)</h4>
+<div class="outline-text-4" id="text-2-5-4">
+<p>
+Juste retourner la valeur de la racine.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1c71a71" class="outline-4">
+<h4 id="org1c71a71"><span class="section-number-4">2.5.5</span> remplacerCle O(h(x)) ou O(h-h(x))</h4>
+<div class="outline-text-4" id="text-2-5-5">
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #7CB8BB; font-weight: bold;">Tas</span> <span style="color: #93E0E3;">remplacerCle</span><span style="color: #DCDCCC;">(</span><span style="color: #7CB8BB; font-weight: bold;">Tas</span> <span style="color: #DFAF8F;">t</span>,<span style="color: #7CB8BB; font-weight: bold;">Cellule</span> <span style="color: #DFAF8F;">r</span>,<span style="color: #7CB8BB; font-weight: bold;">T</span> <span style="color: #DFAF8F;">val</span><span style="color: #DCDCCC;">)</span>
+<span style="color: #DCDCCC;">{</span>
+  <span style="color: #F0DFAF; font-weight: bold;">if</span><span style="color: #BFEBBF;">(</span>r.valeur &lt; val<span style="color: #BFEBBF;">)</span>
+    <span style="color: #BFEBBF;">{</span>
+      r.valeur = val;
+      entasserMin<span style="color: #D0BF8F;">(</span>t,r<span style="color: #D0BF8F;">)</span>;
+    <span style="color: #BFEBBF;">}</span>
+
+  <span style="color: #F0DFAF; font-weight: bold;">else</span>
+    <span style="color: #BFEBBF;">{</span>
+      <span style="color: #F0DFAF; font-weight: bold;">if</span> <span style="color: #D0BF8F;">(</span>r.valeur &gt; val<span style="color: #D0BF8F;">)</span>
+        <span style="color: #D0BF8F;">{</span>
+          r.valeur = r.pere.valeur;
+          r.pere.valeur = val + 1;
+          remplacerCle<span style="color: #93E0E3;">(</span>r.pere,val<span style="color: #93E0E3;">)</span>;
+        <span style="color: #D0BF8F;">}</span>
+    <span style="color: #BFEBBF;">}</span>
+<span style="color: #F0DFAF; font-weight: bold;">return</span> t;
+<span style="color: #DCDCCC;">}</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org547da7c" class="outline-4">
+<h4 id="org547da7c"><span class="section-number-4">2.5.6</span> retirerElement O(h)</h4>
+<div class="outline-text-4" id="text-2-5-6">
+<div class="org-src-container">
+<pre class="src src-C">
+<span style="color: #93E0E3;">retirerElement</span><span style="color: #DCDCCC;">(</span><span style="color: #7CB8BB; font-weight: bold;">Tas</span> <span style="color: #DFAF8F;">t</span>,<span style="color: #7CB8BB; font-weight: bold;">cellule</span> <span style="color: #DFAF8F;">r</span><span style="color: #DCDCCC;">)</span>
+<span style="color: #DCDCCC;">{</span>
+  <span style="color: #7CB8BB; font-weight: bold;">Cellule</span> <span style="color: #DFAF8F;">c</span> = t.racine;
+  <span style="color: #F0DFAF; font-weight: bold;">while</span> <span style="color: #BFEBBF;">(</span>filsGauche<span style="color: #D0BF8F;">(</span>c<span style="color: #D0BF8F;">)</span> != null &amp;&amp; filsDroite<span style="color: #D0BF8F;">(</span>c<span style="color: #D0BF8F;">)</span> != null<span style="color: #BFEBBF;">)</span> <span style="color: #BFEBBF;">{</span>
+
+    <span style="color: #F0DFAF; font-weight: bold;">if</span><span style="color: #D0BF8F;">(</span>FilsGauche<span style="color: #93E0E3;">(</span>c<span style="color: #93E0E3;">)</span>.nbrNoeud == pow<span style="color: #93E0E3;">(</span>2,FilsGauche<span style="color: #9FC59F;">(</span>c<span style="color: #9FC59F;">)</span>.hauteur+1<span style="color: #93E0E3;">)</span>-1<span style="color: #D0BF8F;">)</span>
+      <span style="color: #D0BF8F;">{</span>
+        c.nbrNoeud--;
+        c = FilsDroite<span style="color: #93E0E3;">(</span>c<span style="color: #93E0E3;">)</span>;
+      <span style="color: #D0BF8F;">}</span>
+    <span style="color: #F0DFAF; font-weight: bold;">else</span> 
+      <span style="color: #D0BF8F;">{</span>
+        c.nbrNoeud--;
+        c = FilsGauche<span style="color: #93E0E3;">(</span>c<span style="color: #93E0E3;">)</span>;
+      <span style="color: #D0BF8F;">}</span>
+  <span style="color: #BFEBBF;">}</span>
+
+  <span style="color: #F0DFAF; font-weight: bold;">if</span><span style="color: #BFEBBF;">(</span>c == FilsGauche<span style="color: #D0BF8F;">(</span>Pere<span style="color: #93E0E3;">(</span>c<span style="color: #93E0E3;">)</span><span style="color: #D0BF8F;">)</span><span style="color: #BFEBBF;">)</span>
+    <span style="color: #BFEBBF;">{</span>
+      Pere<span style="color: #D0BF8F;">(</span>c<span style="color: #D0BF8F;">)</span>.hauteur--;
+    <span style="color: #BFEBBF;">}</span>
+  r.valeur = c.valeur;
+  free<span style="color: #BFEBBF;">(</span>c<span style="color: #BFEBBF;">)</span>;
+  entasserMin<span style="color: #BFEBBF;">(</span>t,r<span style="color: #BFEBBF;">)</span>;
+<span style="color: #DCDCCC;">}</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+<div id="outline-container-org2f822b1" class="outline-3">
+<h3 id="org2f822b1"><span class="section-number-3">2.6</span> Question n°6</h3>
+<div class="outline-text-3" id="text-2-6">
+<p>
+Pour récupérer la maximum dans un tas min, il va falloir prendre le maximum entre toutes les feuilles, c'est à dire une complexité O(n).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd3bd641" class="outline-3">
+<h3 id="orgd3bd641"><span class="section-number-3">2.7</span> Question n°7 O(n*log(n))</h3>
+<div class="outline-text-3" id="text-2-7">
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #7CB8BB; font-weight: bold;">T</span><span style="color: #DCDCCC;">[]</span> tri<span style="color: #DCDCCC;">(</span><span style="color: #7CB8BB; font-weight: bold;">Tas</span> <span style="color: #DFAF8F;">t</span><span style="color: #DCDCCC;">)</span>
+<span style="color: #DCDCCC;">{</span>
+  n = t.racine.nbrNoeud;
+  T<span style="color: #BFEBBF;">[]</span> = new T<span style="color: #BFEBBF;">[</span>n<span style="color: #BFEBBF;">]</span>;
+  <span style="color: #F0DFAF; font-weight: bold;">for</span> <span style="color: #BFEBBF;">(</span><span style="color: #7CB8BB; font-weight: bold;">int</span> <span style="color: #DFAF8F;">i</span> = 0; i &lt; n; i++<span style="color: #BFEBBF;">)</span>
+    <span style="color: #BFEBBF;">{</span>
+      t<span style="color: #D0BF8F;">[</span>i<span style="color: #D0BF8F;">]</span> = minimum<span style="color: #D0BF8F;">(</span>t<span style="color: #D0BF8F;">)</span>;
+      retirerElement<span style="color: #D0BF8F;">(</span>t,t.racine<span style="color: #D0BF8F;">)</span>;
+    <span style="color: #BFEBBF;">}</span>
+  <span style="color: #F0DFAF; font-weight: bold;">return</span> t;
+<span style="color: #DCDCCC;">}</span>
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org860d81d" class="outline-3">
+<h3 id="org860d81d"><span class="section-number-3">2.8</span> Question n°8</h3>
+<div class="outline-text-3" id="text-2-8">
+<p>
+Les opérations de la file de priorité sont : insérer,maximum,extraire-max et remplacer, ce qui correspond respectivement avec un tas-max à insérer, maximum, retirerElement(t,t.racine), remplacerCle. 
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1dc67ba" class="outline-2">
+<h2 id="org1dc67ba"><span class="section-number-2">3</span> Exo n° 3</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org173b751" class="outline-3">
+<h3 id="org173b751"><span class="section-number-3">3.1</span> Question n° 1</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+Il est assez simple de représenter une expression arithmétique avec un arbre binaire, (surtout avec la notation polonaise &#x2013;&gt; (2*3) devient (* 2 3)) On va stocker dans la racine la dernière opérations à effectuer, dans son sous arbre gauche l'opération à effectuer avant celle ci et qui va donner l'opérante gauche, de même avec avec la partie droite pour l'opérante droite. Et ceux juqu'au feuilles ou on aura les constantes. Il nous suffira donc d'appeler récursivement depuis la racine et ceux jusqu'au opérations avant les feuilles une méthode <b>résolution</b>,puis remonter petit à petit, si on suit cette méthode il n'y a même pas besoin de spécifier les priorités.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge8c3266" class="outline-3">
+<h3 id="orge8c3266"><span class="section-number-3">3.2</span> Question n°2</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+On va utiliser un parcours en profondeur(suffixe). Si on utilise un parcours préfixe, ou infixe on ne va pas connaître l' opérantes de droite (infixe) voir les deux (préfixe). De même pour le parcours en longueur.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #7CB8BB; font-weight: bold;">float</span> <span style="color: #93E0E3;">eval</span><span style="color: #DCDCCC;">(</span><span style="color: #7CB8BB; font-weight: bold;">Arbre</span> <span style="color: #DFAF8F;">a</span><span style="color: #DCDCCC;">)</span>
+<span style="color: #DCDCCC;">{</span>
+  <span style="color: #7CB8BB; font-weight: bold;">float</span> <span style="color: #DFAF8F;">g</span>,<span style="color: #DFAF8F;">d</span>,<span style="color: #DFAF8F;">retour</span>;
+  <span style="color: #F0DFAF; font-weight: bold;">if</span><span style="color: #BFEBBF;">(</span>FilsGauche<span style="color: #D0BF8F;">(</span>a<span style="color: #D0BF8F;">)</span>.valeur == *op&#233;rations*<span style="color: #BFEBBF;">)</span>
+    <span style="color: #BFEBBF;">{</span>
+      g = eval<span style="color: #D0BF8F;">(</span>ArbreGauche<span style="color: #93E0E3;">(</span>a<span style="color: #93E0E3;">)</span><span style="color: #D0BF8F;">)</span>;
+    <span style="color: #BFEBBF;">}</span>
+  <span style="color: #F0DFAF; font-weight: bold;">else</span>
+    <span style="color: #BFEBBF;">{</span>
+      g = FilsGauche<span style="color: #D0BF8F;">(</span>a<span style="color: #D0BF8F;">)</span>.valeur;
+    <span style="color: #BFEBBF;">}</span>
+  <span style="color: #F0DFAF; font-weight: bold;">if</span><span style="color: #BFEBBF;">(</span>FilsDroit<span style="color: #D0BF8F;">(</span>a<span style="color: #D0BF8F;">)</span>.valeur == *op&#233;rations*<span style="color: #BFEBBF;">)</span>
+    <span style="color: #BFEBBF;">{</span>
+      d = eval<span style="color: #D0BF8F;">(</span>ArbreDroit<span style="color: #93E0E3;">(</span>a<span style="color: #93E0E3;">)</span><span style="color: #D0BF8F;">)</span>;
+    <span style="color: #BFEBBF;">}</span>
+  <span style="color: #F0DFAF; font-weight: bold;">else</span>
+    <span style="color: #BFEBBF;">{</span>
+      d = FilsGauche<span style="color: #D0BF8F;">(</span>a<span style="color: #D0BF8F;">)</span>.valeur;
+    <span style="color: #BFEBBF;">}</span>
+  <span style="color: #F0DFAF; font-weight: bold;">if</span><span style="color: #BFEBBF;">(</span>a.racine.valeur == <span style="color: #CC9393;">'+'</span><span style="color: #BFEBBF;">)</span>
+    <span style="color: #BFEBBF;">{</span>
+      retour = g+d;
+    <span style="color: #BFEBBF;">}</span>
+  <span style="color: #5F7F5F;">// </span><span style="color: #7F9F7F;">et de m&#234;me pour toutes les op&#233;rations;</span>
+  <span style="color: #F0DFAF; font-weight: bold;">return</span> retour;
+<span style="color: #DCDCCC;">}</span> 
+
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org36a191e" class="outline-3">
+<h3 id="org36a191e"><span class="section-number-3">3.3</span> Question n°3</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+Ce sera le même principes avec au noeud soit True Ou false et comme noeud interne Soit OR, AND (2 fils) soit NOT (1 fils), la seule différence est que notre arbre binaire n'est pas forcément parfait ni presque parfait.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #7CB8BB; font-weight: bold;">bool</span> <span style="color: #93E0E3;">eval</span><span style="color: #DCDCCC;">(</span><span style="color: #7CB8BB; font-weight: bold;">Arbre</span> <span style="color: #DFAF8F;">a</span><span style="color: #DCDCCC;">)</span>
+<span style="color: #DCDCCC;">{</span>
+  <span style="color: #7CB8BB; font-weight: bold;">bool</span> <span style="color: #DFAF8F;">g</span>,<span style="color: #DFAF8F;">d</span>,<span style="color: #DFAF8F;">retour</span>;
+  <span style="color: #F0DFAF; font-weight: bold;">if</span><span style="color: #BFEBBF;">(</span>FilsGauche<span style="color: #D0BF8F;">(</span>a<span style="color: #D0BF8F;">)</span>.valeur == *op&#233;rations*<span style="color: #BFEBBF;">)</span>
+    <span style="color: #BFEBBF;">{</span>
+      g = eval<span style="color: #D0BF8F;">(</span>ArbreGauche<span style="color: #93E0E3;">(</span>a<span style="color: #93E0E3;">)</span><span style="color: #D0BF8F;">)</span>;
+    <span style="color: #BFEBBF;">}</span>
+  <span style="color: #F0DFAF; font-weight: bold;">else</span>
+    <span style="color: #BFEBBF;">{</span>
+      g = FilsGauche<span style="color: #D0BF8F;">(</span>a<span style="color: #D0BF8F;">)</span>.valeur;
+    <span style="color: #BFEBBF;">}</span>
+  <span style="color: #F0DFAF; font-weight: bold;">if</span><span style="color: #BFEBBF;">(</span>FilsDroit<span style="color: #D0BF8F;">(</span>a<span style="color: #D0BF8F;">)</span> != null<span style="color: #BFEBBF;">)</span>
+    <span style="color: #BFEBBF;">{</span>
+      <span style="color: #F0DFAF; font-weight: bold;">if</span><span style="color: #D0BF8F;">(</span> FilsDroit<span style="color: #93E0E3;">(</span>a<span style="color: #93E0E3;">)</span>.valeur == *op&#233;rations*<span style="color: #D0BF8F;">)</span>
+        <span style="color: #D0BF8F;">{</span>
+          d = eval<span style="color: #93E0E3;">(</span>ArbreDroit<span style="color: #9FC59F;">(</span>a<span style="color: #9FC59F;">)</span><span style="color: #93E0E3;">)</span>;
+        <span style="color: #D0BF8F;">}</span>
+      <span style="color: #F0DFAF; font-weight: bold;">else</span>
+        <span style="color: #D0BF8F;">{</span>
+          d = FilsGauche<span style="color: #93E0E3;">(</span>a<span style="color: #93E0E3;">)</span>.valeur;
+        <span style="color: #D0BF8F;">}</span>
+    <span style="color: #BFEBBF;">}</span>
+  <span style="color: #F0DFAF; font-weight: bold;">if</span><span style="color: #BFEBBF;">(</span>a.racine.valeur == <span style="color: #CC9393;">"AND"</span><span style="color: #BFEBBF;">)</span>
+    <span style="color: #BFEBBF;">{</span>
+      retour = g &amp;&amp; d;
+    <span style="color: #BFEBBF;">}</span>
+  <span style="color: #F0DFAF; font-weight: bold;">if</span><span style="color: #BFEBBF;">(</span>a.racine.valeur == <span style="color: #CC9393;">"NOT"</span><span style="color: #BFEBBF;">)</span>
+    <span style="color: #BFEBBF;">{</span>
+      retour = not g;
+    <span style="color: #BFEBBF;">}</span>
+  <span style="color: #5F7F5F;">// </span><span style="color: #7F9F7F;">et de m&#234;me pour toutes les op&#233;rations;</span>
+  <span style="color: #F0DFAF; font-weight: bold;">return</span> retour;
+<span style="color: #DCDCCC;">}</span> 
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org654fa70" class="outline-2">
+<h2 id="org654fa70"><span class="section-number-2">4</span> Exo n°4</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-org96492aa" class="outline-3">
+<h3 id="org96492aa"><span class="section-number-3">4.1</span> Question n°1</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+Récurrence ::: 
+</p>
+
+<p>
+Initialisation :::
+hauteur 0, c'est à dire que x = racine donc il ne peut y avoir qu'un chemin (x -&gt; x)
+</p>
+
+<p>
+Hérédité :::
+Supposons que la propriété est vrai pour tout x de hauteur &lt;= n, c'est à dire qu'il n'existe qu'un seul chemin entre x et la racine r que l'on appellera chm.
+Prenons \(x_1\) fils de x, \(x_1\) a donc de hauteur n+1, Prouvons qu'il n'existe qu'un seul chemin entre \(x_1\) et r.
+La seule direction possible pour \(x_1\) allant vers la racine est de passer par son père x, ensuite il ne pourra prendre que le chemin uniqur chm, donc proposition vérifié pour \(x_1\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgcaeaf1c" class="outline-3">
+<h3 id="orgcaeaf1c"><span class="section-number-3">4.2</span> Question n°2</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+Récurrence ::: 
+</p>
+
+<p>
+Initialisation :::
+noeud 1, c'est à dire qu'il n'y a que la racine, qui est une feuille.
+</p>
+
+<p>
+Hérédité :::
+Supposons que la propriété est vrai pour tout arbre ayant &lt;= n noeud, c'est à dire qu'il y a au moins une feuille dans l'arbre T que l'on va notée f.
+Ajoutons lui un nouveau noeud x, Prouvons qu'il la propriété est toujours vérifier.
+Si x est fils de d, alors f ne sera plus feuille mais x deviendra feuille puisque qu'il n'a pas d'enfants. Sinon f restera feuille. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc86c578" class="outline-3">
+<h3 id="orgc86c578"><span class="section-number-3">4.3</span> Question n°3</h3>
+<div class="outline-text-3" id="text-4-3">
+<p>
+Récurrence ::: 
+</p>
+
+<p>
+Initialisation :::
+noeud 1, c'est à dire qu'il n'y a que la racine r
+On a donc V = {r} et E = \(\emptyset\) =&gt; |V| -1 = |E|
+</p>
+
+<p>
+Hérédité :::
+Supposons que la propriété est vrai pour tout arbre ayant &lt;= n noeud.
+Ajoutons lui un nouveau noeud x, Prouvons que la propriété est toujours vérifier.
+Notons p le père de x, V' et E' l'ensemble et relations binaires avant l'ajout de x
+On à donc maintenant \(V = V' \bigcup {x}\) et \(E = E' \bigcup (p,x)\).
+Donc |V| = |V'| +1 et |E| = |E'| +1 (|V| = |E|).    
+</p>
+</div>
+</div>
+
+<div id="outline-container-org102f33e" class="outline-3">
+<h3 id="org102f33e"><span class="section-number-3">4.4</span> Question n°4</h3>
+<div class="outline-text-3" id="text-4-4">
+<p>
+Récurrence ::: 
+</p>
+
+<p>
+Initialisation :::
+hauteur = 0, c'est à dire qu'il y a 1 feuille pour 1 noeud (1 = 2*1-1)
+</p>
+
+<p>
+Hérédité :::
+Supposons que la propriété est vrai pour tout arbre ayant une hauteur &lt;=  h.
+Prouvons que la propriété est toujours vérifier pour tout arbre binaire de hauteur &gt; h.
+Soit T l'arbre de hauteur h+1 et soit f le nbr de feuilles de l'arbre de hauteur h.
+On à donc maintenant 2*f nbr de feuilles (noté \(f_1\)) (vu que chaque noeud précédent à maintenant 2 fils) et comme noeuds totale 2*f-1 + \(f_1\).
+Soit nbr de noeuds = \(f_1\) -1 +\(f_1\) =&gt; 2*$f<sub>1</sub>$-1
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb70cd77" class="outline-3">
+<h3 id="orgb70cd77"><span class="section-number-3">4.5</span> Question n°5</h3>
+<div class="outline-text-3" id="text-4-5">
+<p>
+Récurrence ::: 
+</p>
+
+<p>
+Initialisation :::
+hauteur = 0, c'est à dire qu'il y a qu'une feuille (la racine) (1 &lt;= \(2^0\) = 1)
+</p>
+
+<p>
+Hérédité :::
+Supposons que la propriété est vrai pour tout arbre ayant une hauteur &lt;=  h.
+Prouvons que la propriété est toujours vérifier pour tout arbre binaire de hauteur &gt; h.
+Soit T l'arbre de hauteur h+1 et soit f le nbr de feuilles de l'arbre de hauteur h.
+Le nbr de feuilles \(f_1\) de l'arbre T sera au maximum f*2 (puisque l'arbre est binaires)
+Donc f &le; \(2^h\) ==&gt; 2*f &le; \(2^{h+1}\) ==&gt; \(f_1 \leq 2^{hauteur(T)}\) 
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9037221" class="outline-2">
+<h2 id="org9037221"><span class="section-number-2">5</span> Exo n°5</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-orga201c17" class="outline-3">
+<h3 id="orga201c17"><span class="section-number-3">5.1</span> Question n°1</h3>
+<div class="outline-text-3" id="text-5-1">
+</div>
+<div id="outline-container-orgef57c0a" class="outline-4">
+<h4 id="orgef57c0a"><span class="section-number-4">5.1.1</span> 12345678 et 53247681 :</h4>
+<div class="outline-text-4" id="text-5-1-1">
+<ul class="org-ul">
+<li>L'arbre binaire n'existe pas</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org01013a4" class="outline-4">
+<h4 id="org01013a4"><span class="section-number-4">5.1.2</span> 12345678 et 432527861</h4>
+<div class="outline-text-4" id="text-5-1-2">
+<ul class="org-ul">
+<li>L'arbre binaire existe (le parcours en longueur donne : 1/ 2 6/ 3 5 7 8/4)</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-org2e3d195" class="outline-3">
+<h3 id="org2e3d195"><span class="section-number-3">5.2</span> Question n°2</h3>
+<div class="outline-text-3" id="text-5-2">
+</div>
+<div id="outline-container-org16a5ce4" class="outline-4">
+<h4 id="org16a5ce4"><span class="section-number-4">5.2.1</span> Construction Arbre :</h4>
+<div class="outline-text-4" id="text-5-2-1">
+<ul class="org-ul">
+<li>J'ai pris la notation de python pour obtenir des sous-String, sinon il faudrait créer une fonction qui renvoie une sous string en fonction de l'index de départ et d'arrivé et sauvegarder la taille à chaque fois.</li>
+<li>FindIndexDans(String,char) va renvoyer la position du char dans le String en parcourant le string</li>
+<li>Dans cette exo un noeud est représenté par un entier valeur et par 2 noeuds (filsG et filsD), pas besoin du père ici.</li>
+<li>Un arbre est donc seulement un noeud que l'on appelle racine.</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #7CB8BB; font-weight: bold;">Arbre</span> <span style="color: #93E0E3;">CreationRacine</span><span style="color: #DCDCCC;">(</span><span style="color: #7CB8BB; font-weight: bold;">String</span> <span style="color: #DFAF8F;">pre</span>,<span style="color: #7CB8BB; font-weight: bold;">String</span> <span style="color: #DFAF8F;">post</span><span style="color: #DCDCCC;">)</span>
+<span style="color: #DCDCCC;">{</span>
+<span style="color: #7CB8BB; font-weight: bold;">Arbre</span> <span style="color: #DFAF8F;">a</span> = CreerArbre<span style="color: #BFEBBF;">()</span>;
+a.racine.val = pre<span style="color: #BFEBBF;">[</span>0<span style="color: #BFEBBF;">]</span>;
+CreationArbreInterne<span style="color: #BFEBBF;">(</span>a.racine,pre<span style="color: #D0BF8F;">[</span>1:<span style="color: #D0BF8F;">]</span>,post<span style="color: #D0BF8F;">[</span>:-1<span style="color: #D0BF8F;">]</span><span style="color: #BFEBBF;">)</span>
+<span style="color: #F0DFAF; font-weight: bold;">return</span> a;
+<span style="color: #DCDCCC;">}</span>
+
+<span style="color: #7CB8BB; font-weight: bold;">void</span>  <span style="color: #93E0E3;">CreationArbeInterne</span><span style="color: #DCDCCC;">(</span><span style="color: #7CB8BB; font-weight: bold;">Noeud</span> <span style="color: #DFAF8F;">n</span>,<span style="color: #7CB8BB; font-weight: bold;">String</span> <span style="color: #DFAF8F;">pre</span>,<span style="color: #7CB8BB; font-weight: bold;">String</span> <span style="color: #DFAF8F;">post</span><span style="color: #DCDCCC;">)</span>
+<span style="color: #DCDCCC;">{</span>
+ <span style="color: #F0DFAF; font-weight: bold;">if</span><span style="color: #BFEBBF;">(</span>taille<span style="color: #D0BF8F;">(</span>pre<span style="color: #D0BF8F;">)</span> &gt; 1<span style="color: #BFEBBF;">)</span>
+   <span style="color: #BFEBBF;">{</span>
+     g = CreerNoeud<span style="color: #D0BF8F;">()</span>;
+     g.val = pre<span style="color: #D0BF8F;">[</span>0<span style="color: #D0BF8F;">]</span>;
+     n.filsG = g;
+     d = CreerNoeud<span style="color: #D0BF8F;">()</span>;
+     d.val = post<span style="color: #D0BF8F;">[</span>-1<span style="color: #D0BF8F;">]</span>;
+     n.filsD = d;
+
+     <span style="color: #7CB8BB; font-weight: bold;">int</span> <span style="color: #DFAF8F;">posInterPost</span> = FindIndexDans<span style="color: #D0BF8F;">(</span>post,pre<span style="color: #93E0E3;">[</span>0<span style="color: #93E0E3;">]</span><span style="color: #D0BF8F;">)</span>;
+     <span style="color: #7CB8BB; font-weight: bold;">int</span> <span style="color: #DFAF8F;">posInterPre</span> = FindIndexDans<span style="color: #D0BF8F;">(</span>pre,post<span style="color: #93E0E3;">[</span>-1<span style="color: #93E0E3;">]</span><span style="color: #D0BF8F;">)</span>;
+
+     CreationArbreInterne<span style="color: #D0BF8F;">(</span>g,pre<span style="color: #93E0E3;">[</span>1:postInterPre<span style="color: #93E0E3;">]</span>,post<span style="color: #93E0E3;">[</span>0:posInterPost<span style="color: #93E0E3;">]</span><span style="color: #D0BF8F;">)</span>;
+     CreationArbreInterne<span style="color: #D0BF8F;">(</span>d,pre<span style="color: #93E0E3;">[</span>postInterPre+1:<span style="color: #93E0E3;">]</span>,post<span style="color: #93E0E3;">[</span>postInerPost+1:-1<span style="color: #93E0E3;">]</span><span style="color: #D0BF8F;">)</span>;
+   <span style="color: #BFEBBF;">}</span>
+ <span style="color: #F0DFAF; font-weight: bold;">else</span> <span style="color: #F0DFAF; font-weight: bold;">if</span> <span style="color: #BFEBBF;">(</span>taille<span style="color: #D0BF8F;">(</span>pre<span style="color: #D0BF8F;">)</span>&gt; 0<span style="color: #BFEBBF;">)</span>
+   <span style="color: #BFEBBF;">{</span>
+     g = CreerNoeud<span style="color: #D0BF8F;">()</span>;
+     g.val = pre<span style="color: #D0BF8F;">[</span>0<span style="color: #D0BF8F;">]</span>;
+     n.filsG = g;
+   <span style="color: #BFEBBF;">}</span>
+<span style="color: #DCDCCC;">}</span>
+</pre>
+</div>
+
+<p>
+on aurait pu avoir un probleme si notre arbre n'est pas binaire, en effet si on avait eu 12345678 et 432528761, on aurait du avoir 6 &#x2013;&gt;7 &#x2013;&gt; 8 et non pas. Il faudrait donc un peu modifier l'algo
+</p>
+<!-- This HTML table template is generated by emacs 26.3 -->
+<table border="1">
+  <tr>
+    <td align="left" valign="top">
+      &nbsp;&nbsp;6&nbsp;&nbsp;<br />
+      &nbsp;/&nbsp;\&nbsp;<br />
+      7&nbsp;&nbsp;&nbsp;8
+    </td>
+  </tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: cliquot</p>
+<p class="date">Created: 2021-03-28 dim. 16:53</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

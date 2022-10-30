@@ -1,0 +1,693 @@
+% Created 2021-03-20 sam. 23:59
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{listings}
+\usepackage[a4paper,left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\author{cliquot}
+\date{\today}
+\title{Liste}
+\hypersetup{
+ pdfauthor={cliquot},
+ pdftitle={Liste},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 26.3 (Org mode 9.1.9)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+\section{EXO 1}
+\label{sec:orga3efe15}
+
+\subsection{La cellule}
+\label{sec:org3c51dcb}
+
+\subsubsection{Implémentation}
+\label{sec:org5f2e90d}
+
+Une cellule sera implémentée de cette façon :
+\begin{itemize}
+\item Une variable de type T qui sera notre valeur à stocker.
+\item Une cellule qui représente l'index de notre cellule suivante.
+\end{itemize}
+
+\subsubsection{Les méthodes de la cellule}
+\label{sec:org9fd8042}
+
+\begin{enumerate}
+\item créerCellule O(1)
+\label{sec:orgbe3754c}
+
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+Cellule creerCellule()
+{
+  Cellule c = new Cellule();
+  c.val = null;
+  c.suiv = null;
+  return c;
+}  
+\end{lstlisting}
+\item valeurCellule O(1)
+\label{sec:orgc20ac95}
+
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+T valeurCellule(Cellule c)
+{
+  return c.val;
+}
+\end{lstlisting}
+\item suivantCellule O(1)
+\label{sec:orgffc9ee1}
+
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+Cellule suivantCellule(Cellule c)
+{
+  return c.suiv;
+}
+\end{lstlisting}
+
+\item insererSuivantCellule O(1)
+\label{sec:org1069ed8}
+
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+Cellule insererSuivantCellule(Cellule c, Cellule s)
+{
+  c.suiv = s;
+  return s;
+}
+\end{lstlisting}
+
+\item dernierCellule O(1)
+\label{sec:org07a69bd}
+
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+Cellule dernierCellule(Cellule c)
+{
+  return suivantCellule(c) == null;
+}
+\end{lstlisting}
+\end{enumerate}
+
+
+\subsection{QUESTION 1}
+\label{sec:org39ab951}
+
+\subsubsection{Implémentation}
+\label{sec:org114e5be}
+La liste sera implémentée de cette façon :
+\begin{itemize}
+\item Un tableau pour stocker nos cellules.
+\item Une pile pour connaître les cellules encore vides.
+\item un entier qui nous indiquera l'index de notre première cellule.
+\end{itemize}
+
+\subsubsection{Les méthodes de la liste}
+\label{sec:orgcc806d1}
+
+\begin{enumerate}
+\item créerListe O(1)
+\label{sec:orgb0915e3}
+
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+Liste creerListe(int n)
+{
+  Liste l = new Liste();
+  l.tab = Cellule[n];
+  l.pile = creerPile(n);
+  for (int i = 0; i < n; ++i)
+    {
+      empile(l.pile,tab[i]);
+    }
+  l.start = null;
+  return l;
+}
+\end{lstlisting}
+
+\item estVideListe O(1)
+\label{sec:org999ce5f}
+
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+bool estVideListe(Liste l)
+{
+  return l.start = null;
+}  
+\end{lstlisting}
+
+\item teteList O(1)
+\label{sec:orge31d2bc}
+
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+Cellule teteListe(Liste l)
+{
+  return l.start;
+}  
+\end{lstlisting}
+\item insererTeteList O(1)
+\label{sec:orgeef672b}
+
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+Liste insererTeteListe(Liste l,T val)
+{
+  if(!estVide(l.pile))
+    {
+      Cellule nouveauStart = sommet(l.pile);
+      nouveauStart.val = val;
+      insererSuivantCellule(nouveauStart,l.start);
+      l.start = nouveauStart;
+      depiler(l.pile);
+    }
+  return l;
+}
+\end{lstlisting}
+\item supprimerTeteListe O(1)
+\label{sec:org0ba9657}
+
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+Liste supprimerTeteListe(Liste l)
+{
+  if(!estPlein(l.pile))
+    {
+      empiler(l.pile,l.start);
+      l.start = suivantCellule(l.start);
+    }
+  return l;
+}
+\end{lstlisting}
+\item tailleListe O(n)
+\label{sec:org60a6b70}
+
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+int tailleListe(Liste l)
+{
+  int size = 0;
+  Cellule celluleActuelle = teteListe(l);
+  while (celluleActuelle != null)
+    {
+      size++;
+    }
+
+  return size;
+}  
+\end{lstlisting}
+
+\item queue O(1)
+\label{sec:org045ab50}
+
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+Liste queue(Liste l)
+{
+  Liste retour = creerListe(n-1);
+  retour.start = suivantCellule(teteListe(l));
+  return retour;
+}
+\end{lstlisting}
+\item obtenirElement O(i)
+\label{sec:org77054f0}
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+Cellule obtenirElement(Liste l,int i)
+{
+  Cellule celluleActuelle = teteListe(l);
+  while(celluleAtuelle != null && i > 0)
+    {
+      i--;
+      celluleActuelle = suivantCellule(celluleActuelle);
+    }
+  return valeurCellule(celluleActuelle);
+
+}
+\end{lstlisting}
+\item insererElement O(i)
+\label{sec:org80c0aa4}
+
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+Liste insererElement(Liste l,T val,int index)
+{
+  if(index == 0)
+    {
+      insererTeteListe(l,val);
+    }
+  else {
+    if(!estVide(l.pile))
+      {
+        Cellule celluleActuelle = teteListe(l);
+        while (dernierCellule(celluleActuelle) && index > 1) {
+          index--;
+          celluleActuelle = suivantCellule(celluleActuelle);
+        }
+        Cellule celluleSuivante = suivantCellule(celluleActuelle);
+        insererSuivantCellule(celluleActuelle,sommet(l.pile));
+        depiler(l.pile);
+        suivantCellule(celluleActuelle).val = val;
+        insererSuivantCellule(suivantCellule(celluleActuelle),celluleSuivante);
+      }
+  }
+  return l;
+}
+\end{lstlisting}
+\item supprimerElement O(i)
+\label{sec:org0ebf983}
+
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+Liste supprimerElement(Liste l,int index)
+{
+  if(index == 0)
+    {
+      return supprimerTeteListe(l);
+    }
+  else {
+    Cellule celluleActuelle = teteListe(l);
+    while(dernierCellule(celluleActuelle) != null && i > 1)
+      {
+        i--;
+        celluleActuelle = suivantCellule(celluleActuelle);
+      }
+    if (index == 1 && !estPlein(l.pile)) {
+      Cellule celluleASupprimer = suivantCellule(celluleActuelle);
+      insererSuivantCellule(celluleActuelle,suivantCellule(celluleASupprimer));
+      empiler(celluleASupprimer);
+    }
+    return l;
+  }
+}
+\end{lstlisting}
+\end{enumerate}
+
+
+
+\subsection{QUESTION 2}
+\label{sec:org216b1da}
+
+\subsubsection{Implémentation}
+\label{sec:org2a1e736}
+La liste sera implémentée de cette façon :
+\begin{itemize}
+\item Une seule cellule qui représentera la tête de notre tableau.
+\end{itemize}
+
+\subsubsection{Les méthodes de la liste (même complexité en temps que la QUESTION 1)}
+\label{sec:orgb5229be}
+
+\begin{enumerate}
+\item créerListe()
+\label{sec:orgf977558}
+
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+Liste creerListe()
+{
+  Liste l = new Liste();
+  l.tete = null;
+  return l;
+}
+\end{lstlisting}
+
+\item estVideListe
+\label{sec:org07608b4}
+
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+bool estVideListe(Liste l)
+{
+  return teteListe(l) == null;
+}  
+\end{lstlisting}
+
+\item teteListe
+\label{sec:orgc65930a}
+
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+Cellule teteListe(Liste l)
+{
+  return l.tete;
+}  
+\end{lstlisting}
+\item insererTeteListe
+\label{sec:org8bbbe1f}
+
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+Liste insererTeteListe(Liste l,T val)
+{
+  Cellule ancienneTete = teteListe(l);
+  l.tete = creerCellule();
+  l.tete.val = val;
+  insererSuivantCellule(teteListe(l),ancienneTete);
+  return l;
+}
+\end{lstlisting}
+\item supprimerTeteListe
+\label{sec:org68e84cc}
+
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+Liste supprimerTeteListe(Liste l)
+{
+  Cellule nouvelleTete;
+  if (teteListe(l) != null) {
+    nouvelleTete = suivantCellule(teteListe(l));
+  }
+  else
+    {
+      nouvelleTete = null;
+    }
+  free(teteListe(l));
+  l.tete = nouvelleTete; 
+  return l;
+}
+\end{lstlisting}
+\item tailleListe
+\label{sec:org5fafce3}
+
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+int tailleListe(Liste l)
+{
+  int size = 0;
+  Cellule celluleActuelle = teteListe(l);
+  while (celluleActuelle != null)
+    {
+      size++;
+    }
+
+  return size;
+}  
+\end{lstlisting}
+
+\item queue
+\label{sec:orge719a1a}
+
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+Liste queue(Liste l)
+{
+  Liste retour = creerListe();
+  retour.tete = suivantCellule(teteListe(l));
+  return retour;
+}
+\end{lstlisting}
+\item obtenirElement
+\label{sec:orgc0a5996}
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+Cellule obtenirElement(Liste l,int i)
+{
+  Cellule celluleActuelle = teteListe(l);
+  while(celluleAtuelle != null && i > 0)
+    {
+      i--;
+      celluleActuelle = suivantCellule(celluleActuelle);
+    }
+  return valeurCellule(celluleActuelle);
+
+}
+\end{lstlisting}
+\item insererElement
+\label{sec:org8d6b7ad}
+
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+Liste insererElement(Liste l,T val,int index)
+{
+  if(index == 0)
+    {
+      insererTeteListe(l,val);
+    }
+  else {
+    Cellule celluleActuelle = teteListe(l);
+    while (dernierCellule(celluleActuelle) && index > 1) {
+      index--;
+      celluleActuelle = suivantCellule(celluleActuelle);
+    }
+    Cellule celluleSuivante = suivantCellule(celluleActuelle);
+    insererSuivantCellule(celluleActuelle,creerCellule());
+    suivantCellule(celluleActuelle).val = val;
+    insererSuivantCellule(suivantCellule(celluleActuelle),celluleSuivante)
+  }
+  return l;
+}
+\end{lstlisting}
+\item supprimerElement
+\label{sec:org3f913d2}
+
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+Liste supprimerElement(Liste l,int index)
+{
+  if(index == 0)
+    {
+      return supprimerTeteListe(l);
+    }
+  else {
+    Cellule celluleActuelle = teteListe(l);
+    while(dernierCellule(celluleActuelle) != null && i > 1)
+      {
+        i--;
+        celluleActuelle = suivantCellule(celluleActuelle);
+      }
+    if (index == 1) {
+      Cellule celluleASupprimer = suivantCellule(celluleActuelle);
+      insererSuivantCellule(celluleActuelle,suivantCellule(celluleASupprimer));
+      free(celluleASupprimer);
+    }
+    return l;
+  }
+}
+\end{lstlisting}
+\end{enumerate}
+
+
+
+\subsection{QUESTION 3}
+\label{sec:org6959c9b}
+
+Pour avoir une liste chainée bi-directionelle, il faudrait rajouter dans la cellule une variable prec pour stocker la position de la cellule précédente (de la même façon que pour la variable suiv)
+ainsi que des méthodes precedenteCellule() et insertionPrecedenteCellule() qui vont modifier de la même façon que suiv la variable prec.
+
+De plus partout ou on a modifié notre variable suiv, il faudrait modifier la variable prec de la cellule qui suit (sauf si le suivant est null) (ex insertionSuivantCellule(c1,c2) -> insertionPrecedentCellule(c2,c1)).
+
+Pour la liste chainée circulaire (pas bi-directionelle) il faudra remplacer tous nos null par la valeur de la tete de liste (par exemple lorsqu'on on regardait si notre cellule et la dernière, il faudra faire suivantCellule(celluleActuelle) == teteListe(l)). Il faudra aussi bien penser lors de l'ajout d'un element qui se retrouve être le dernier ou le premier de la liste qu'on doit avoir la variable suiv du dernier bien modifié, de même lorqu'on supprime la tête (ce qui va consister à modifier inserer/supprimerTeteListe et rajouter une condition lorsque on ajoute/supprime le dernier element si on a défini les méthodes obtenir/supprimerElement comme dans la question 2 ainsi que la méthode queue) .  
+
+\section{Exo 2}
+\label{sec:org728ea0a}
+
+cette algorithme va renverser une liste.
+
+\section{Exo 3}
+\label{sec:org0449a43}
+Tout en O(1);
+\subsection{QUESTION 1}
+\label{sec:org05d027b}
+
+Le seul moyen pour avoir une concaténation de deux liste en temps O(1) et d'avoir des listes circulaires. En effet on va faire : 
+(on suppose que insererPrecedentCellule \textasciitilde{}= insererSuivantCellule 
+ et precedentCellule \textasciitilde{}= suivantCellule.
+ la seule différence étant qu'il modifie la valeur qui représente la cellule précédente). 
+
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+  void concatenation(Liste l1,Liste l2)
+{
+  insererSuivantCellule(precedentCellule(teteListe(l1)),teteListe(l2));
+  insererSuivantCellule(precedentCellule(teteListe(l2)),teteListe(l1));
+
+  Cellule ancienDernierL1 = precedentCellule(teteListe(l1));
+
+  insererPrecedentCellule(teteListe(l1),precedentCellule(teteListe(l2)));
+  insererPrecedentCellule(teteListe(l2),ancienDernierL1);
+} 
+\end{lstlisting}
+
+\subsection{QUESTION 2}
+\label{sec:orgbbaae81}
+\subsection{QUESTION 3}
+\label{sec:orgcd12433}
+
+\subsubsection{PILE (est donc composée d'une liste l);}
+\label{sec:org52ffc25}
+
+\begin{enumerate}
+\item creerPile
+\label{sec:org108fa72}
+
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+  Pile creerPile()
+{
+  Pile p = new Pile();
+  p.l = creerListe();
+  return p;
+}
+\end{lstlisting}
+
+\item estVide
+\label{sec:org91a2601}
+
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+bool estVide(Pile p)
+{
+  return estVideListe(p.l);
+}
+
+\end{lstlisting}
+
+\item empiler
+\label{sec:org81f46b3}
+
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+Pile empiler(Pile p,T val)
+{
+  insererTeteListe(p.l,val);
+  return p;
+}
+\end{lstlisting}
+
+\item depiler
+\label{sec:org4ca93f2}
+
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+Pile depiler(Pile p)
+{
+  supprimerTeteListe(p.l);
+  return p;
+}
+\end{lstlisting}
+
+\item sommet
+\label{sec:orgcb49fa6}
+
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+T sommet(Pile p)
+{
+  return valeurCellule(teteListe(p.l));
+}
+\end{lstlisting}
+\end{enumerate}
+
+\subsubsection{FILE (est donc composée d'une liste l);}
+\label{sec:orgdfdd22f}
+
+\begin{enumerate}
+\item creerFile
+\label{sec:orge25a9ad}
+
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+  Pile creerFile()
+{
+  File f = new File();
+  f.l = creerListe();
+  return f;
+}
+\end{lstlisting}
+
+\item estVide
+\label{sec:orgc9cf72a}
+
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+bool estVide(File f)
+{
+  return estVideListe(f.l);
+}
+
+\end{lstlisting}
+
+\item emfiler
+\label{sec:org30237ed}
+
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+File empiler(File f,T val)
+{
+  insererTeteListe(f.l,val);
+  return f;
+}
+\end{lstlisting}
+
+\item defiler
+\label{sec:org5db8eae}
+
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+File defiler(File f)
+{
+  Cellule derniereCellule = precedentCellule(teteListe(f.l));
+  inserersuivantCellule(precedentCellule(precedentCellule(teteListe(f.l))),teteListe(f.l));
+  free(derniereCellule);
+  return f;
+}
+\end{lstlisting}
+
+\item teteFile
+\label{sec:orge70a8d4}
+
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+T teteFile(File f)
+{
+  return valeurCellule(precedentCellule(teteListe(f.l)));
+}
+\end{lstlisting}
+\end{enumerate}
+\section{Exo 4}
+\label{sec:org5771870}
+
+\subsubsection{Fonction}
+\label{sec:orgdccb121}
+
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+  Liste inverser(Liste l)
+{
+  Cellule precedente;
+  Cellule actuelle = teteListe(l);
+  Cellule suivante = suivantCellule(actuelle);
+while(suivant != null)
+  {
+    precedente = actuelle;
+    actuelle = suivante;
+    suivante = suivantCellule(suivante);
+    insererCelluleSuivante(actuelle,suivante);
+  }
+ l.tete = actuelle;
+ return l;
+}
+\end{lstlisting}
+\end{document}

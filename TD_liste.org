@@ -1,0 +1,551 @@
+#+TITLE: Liste
+
+* EXO 1 
+
+** La cellule
+
+*** Implémentation 
+
+    Une cellule sera implémentée de cette façon :
+    - Une variable de type T qui sera notre valeur à stocker.
+    - Une cellule qui représente l'index de notre cellule suivante.
+
+*** Les méthodes de la cellule
+
+**** créerCellule O(1)
+     
+     #+BEGIN_SRC c
+       Cellule creerCellule()
+       {
+         Cellule c = new Cellule();
+         c.val = null;
+         c.suiv = null;
+         return c;
+       }  
+     #+END_SRC
+**** valeurCellule O(1)
+
+     #+BEGIN_SRC c
+       T valeurCellule(Cellule c)
+       {
+         return c.val;
+       }
+     #+END_SRC
+**** suivantCellule O(1)
+
+     #+BEGIN_SRC c
+       Cellule suivantCellule(Cellule c)
+       {
+         return c.suiv;
+       }
+     #+END_SRC
+     
+**** insererSuivantCellule O(1)
+
+     #+BEGIN_SRC c
+       Cellule insererSuivantCellule(Cellule c, Cellule s)
+       {
+         c.suiv = s;
+         return s;
+       }
+     #+END_SRC
+     
+**** dernierCellule O(1)
+
+     #+BEGIN_SRC c
+       Cellule dernierCellule(Cellule c)
+       {
+         return suivantCellule(c) == null;
+       }
+     #+END_SRC
+     
+
+** QUESTION 1  
+
+*** Implémentation 
+    La liste sera implémentée de cette façon :
+    - Un tableau pour stocker nos cellules.
+    - Une pile pour connaître les cellules encore vides.
+    - un entier qui nous indiquera l'index de notre première cellule.
+
+*** Les méthodes de la liste
+
+**** créerListe O(1)
+
+     #+BEGIN_SRC c
+       Liste creerListe(int n)
+       {
+         Liste l = new Liste();
+         l.tab = Cellule[n];
+         l.pile = creerPile(n);
+         for (int i = 0; i < n; ++i)
+           {
+             empile(l.pile,tab[i]);
+           }
+         l.start = null;
+         return l;
+       }
+     #+END_SRC
+     
+**** estVideListe O(1)
+
+     #+BEGIN_SRC c
+       bool estVideListe(Liste l)
+       {
+         return l.start = null;
+       }  
+     #+END_SRC
+
+**** teteList O(1) 
+
+     #+BEGIN_SRC c
+       Cellule teteListe(Liste l)
+       {
+         return l.start;
+       }  
+     #+END_SRC
+**** insererTeteList O(1)
+     
+     #+BEGIN_SRC c
+       Liste insererTeteListe(Liste l,T val)
+       {
+         if(!estVide(l.pile))
+           {
+             Cellule nouveauStart = sommet(l.pile);
+             nouveauStart.val = val;
+             insererSuivantCellule(nouveauStart,l.start);
+             l.start = nouveauStart;
+             depiler(l.pile);
+           }
+         return l;
+       }
+     #+END_SRC
+**** supprimerTeteListe O(1)
+
+     #+BEGIN_SRC c 
+       Liste supprimerTeteListe(Liste l)
+       {
+         if(!estPlein(l.pile))
+           {
+             empiler(l.pile,l.start);
+             l.start = suivantCellule(l.start);
+           }
+         return l;
+       }
+     #+END_SRC
+**** tailleListe O(n)
+
+     #+BEGIN_SRC c
+       int tailleListe(Liste l)
+       {
+         int size = 0;
+         Cellule celluleActuelle = teteListe(l);
+         while (celluleActuelle != null)
+           {
+             size++;
+           }
+
+         return size;
+       }  
+     #+END_SRC
+
+**** queue O(1)  
+
+     #+BEGIN_SRC c
+              Liste queue(Liste l)
+              {
+                Liste retour = creerListe(n-1);
+                retour.start = suivantCellule(teteListe(l));
+                return retour;
+              }
+     #+END_SRC
+**** obtenirElement O(i)
+     #+BEGIN_SRC c
+       Cellule obtenirElement(Liste l,int i)
+       {
+         Cellule celluleActuelle = teteListe(l);
+         while(celluleAtuelle != null && i > 0)
+           {
+             i--;
+             celluleActuelle = suivantCellule(celluleActuelle);
+           }
+         return valeurCellule(celluleActuelle);
+
+       }
+     #+END_SRC
+**** insererElement O(i)
+
+     #+BEGIN_SRC c
+       Liste insererElement(Liste l,T val,int index)
+       {
+         if(index == 0)
+           {
+             insererTeteListe(l,val);
+           }
+         else {
+           if(!estVide(l.pile))
+             {
+               Cellule celluleActuelle = teteListe(l);
+               while (dernierCellule(celluleActuelle) && index > 1) {
+                 index--;
+                 celluleActuelle = suivantCellule(celluleActuelle);
+               }
+               Cellule celluleSuivante = suivantCellule(celluleActuelle);
+               insererSuivantCellule(celluleActuelle,sommet(l.pile));
+               depiler(l.pile);
+               suivantCellule(celluleActuelle).val = val;
+               insererSuivantCellule(suivantCellule(celluleActuelle),celluleSuivante);
+             }
+         }
+         return l;
+       }
+     #+END_SRC
+**** supprimerElement O(i)
+
+     #+BEGIN_SRC c
+       Liste supprimerElement(Liste l,int index)
+       {
+         if(index == 0)
+           {
+             return supprimerTeteListe(l);
+           }
+         else {
+           Cellule celluleActuelle = teteListe(l);
+           while(dernierCellule(celluleActuelle) != null && i > 1)
+             {
+               i--;
+               celluleActuelle = suivantCellule(celluleActuelle);
+             }
+           if (index == 1 && !estPlein(l.pile)) {
+             Cellule celluleASupprimer = suivantCellule(celluleActuelle);
+             insererSuivantCellule(celluleActuelle,suivantCellule(celluleASupprimer));
+             empiler(celluleASupprimer);
+           }
+           return l;
+         }
+       }
+     #+END_SRC
+
+
+
+** QUESTION 2
+   
+*** Implémentation 
+    La liste sera implémentée de cette façon :
+    - Une seule cellule qui représentera la tête de notre tableau.
+
+*** Les méthodes de la liste (même complexité en temps que la QUESTION 1) 
+
+**** créerListe()
+
+     #+BEGIN_SRC c
+       Liste creerListe()
+       {
+         Liste l = new Liste();
+         l.tete = null;
+         return l;
+       }
+     #+END_SRC
+     
+**** estVideListe
+
+     #+BEGIN_SRC c
+       bool estVideListe(Liste l)
+       {
+         return teteListe(l) == null;
+       }  
+     #+END_SRC
+
+**** teteListe
+
+     #+BEGIN_SRC c
+       Cellule teteListe(Liste l)
+       {
+         return l.tete;
+       }  
+     #+END_SRC
+**** insererTeteListe
+     
+     #+BEGIN_SRC c
+       Liste insererTeteListe(Liste l,T val)
+       {
+         Cellule ancienneTete = teteListe(l);
+         l.tete = creerCellule();
+         l.tete.val = val;
+         insererSuivantCellule(teteListe(l),ancienneTete);
+         return l;
+       }
+     #+END_SRC
+**** supprimerTeteListe
+
+     #+BEGIN_SRC c 
+       Liste supprimerTeteListe(Liste l)
+       {
+         Cellule nouvelleTete;
+         if (teteListe(l) != null) {
+           nouvelleTete = suivantCellule(teteListe(l));
+         }
+         else
+           {
+             nouvelleTete = null;
+           }
+         free(teteListe(l));
+         l.tete = nouvelleTete; 
+         return l;
+       }
+     #+END_SRC
+**** tailleListe
+
+     #+BEGIN_SRC c
+       int tailleListe(Liste l)
+       {
+         int size = 0;
+         Cellule celluleActuelle = teteListe(l);
+         while (celluleActuelle != null)
+           {
+             size++;
+           }
+
+         return size;
+       }  
+     #+END_SRC
+
+**** queue
+
+     #+BEGIN_SRC c
+              Liste queue(Liste l)
+              {
+                Liste retour = creerListe();
+                retour.tete = suivantCellule(teteListe(l));
+                return retour;
+              }
+     #+END_SRC
+**** obtenirElement
+     #+BEGIN_SRC c
+       Cellule obtenirElement(Liste l,int i)
+       {
+         Cellule celluleActuelle = teteListe(l);
+         while(celluleAtuelle != null && i > 0)
+           {
+             i--;
+             celluleActuelle = suivantCellule(celluleActuelle);
+           }
+         return valeurCellule(celluleActuelle);
+
+       }
+     #+END_SRC
+**** insererElement
+
+     #+BEGIN_SRC c
+       Liste insererElement(Liste l,T val,int index)
+       {
+         if(index == 0)
+           {
+             insererTeteListe(l,val);
+           }
+         else {
+           Cellule celluleActuelle = teteListe(l);
+           while (dernierCellule(celluleActuelle) && index > 1) {
+             index--;
+             celluleActuelle = suivantCellule(celluleActuelle);
+           }
+           Cellule celluleSuivante = suivantCellule(celluleActuelle);
+           insererSuivantCellule(celluleActuelle,creerCellule());
+           suivantCellule(celluleActuelle).val = val;
+           insererSuivantCellule(suivantCellule(celluleActuelle),celluleSuivante)
+         }
+         return l;
+       }
+     #+END_SRC
+**** supprimerElement
+
+     #+BEGIN_SRC c
+       Liste supprimerElement(Liste l,int index)
+       {
+         if(index == 0)
+           {
+             return supprimerTeteListe(l);
+           }
+         else {
+           Cellule celluleActuelle = teteListe(l);
+           while(dernierCellule(celluleActuelle) != null && i > 1)
+             {
+               i--;
+               celluleActuelle = suivantCellule(celluleActuelle);
+             }
+           if (index == 1) {
+             Cellule celluleASupprimer = suivantCellule(celluleActuelle);
+             insererSuivantCellule(celluleActuelle,suivantCellule(celluleASupprimer));
+             free(celluleASupprimer);
+           }
+           return l;
+         }
+       }
+     #+END_SRC
+
+
+
+** QUESTION 3 
+
+Pour avoir une liste chainée bi-directionelle, il faudrait rajouter dans la cellule une variable prec pour stocker la position de la cellule précédente (de la même façon que pour la variable suiv)
+ainsi que des méthodes precedenteCellule() et insertionPrecedenteCellule() qui vont modifier de la même façon que suiv la variable prec.
+  
+De plus partout ou on a modifié notre variable suiv, il faudrait modifier la variable prec de la cellule qui suit (sauf si le suivant est null) (ex insertionSuivantCellule(c1,c2) -> insertionPrecedentCellule(c2,c1)).
+
+Pour la liste chainée circulaire (pas bi-directionelle) il faudra remplacer tous nos null par la valeur de la tete de liste (par exemple lorsqu'on on regardait si notre cellule et la dernière, il faudra faire suivantCellule(celluleActuelle) == teteListe(l)). Il faudra aussi bien penser lors de l'ajout d'un element qui se retrouve être le dernier ou le premier de la liste qu'on doit avoir la variable suiv du dernier bien modifié, de même lorqu'on supprime la tête (ce qui va consister à modifier inserer/supprimerTeteListe et rajouter une condition lorsque on ajoute/supprime le dernier element si on a défini les méthodes obtenir/supprimerElement comme dans la question 2 ainsi que la méthode queue) .  
+
+* Exo 2
+
+cette algorithme va renverser une liste.
+
+* Exo 3
+  Tout en O(1);
+** QUESTION 1 
+
+Le seul moyen pour avoir une concaténation de deux liste en temps O(1) et d'avoir des listes circulaires. En effet on va faire : 
+(on suppose que insererPrecedentCellule ~= insererSuivantCellule 
+ et precedentCellule ~= suivantCellule.
+ la seule différence étant qu'il modifie la valeur qui représente la cellule précédente). 
+
+#+BEGIN_SRC c 
+        void concatenation(Liste l1,Liste l2)
+      {
+        insererSuivantCellule(precedentCellule(teteListe(l1)),teteListe(l2));
+        insererSuivantCellule(precedentCellule(teteListe(l2)),teteListe(l1));
+
+        Cellule ancienDernierL1 = precedentCellule(teteListe(l1));
+
+        insererPrecedentCellule(teteListe(l1),precedentCellule(teteListe(l2)));
+        insererPrecedentCellule(teteListe(l2),ancienDernierL1);
+      } 
+#+END_SRC
+
+** QUESTION 2
+** QUESTION 3
+
+*** PILE (est donc composée d'une liste l);
+
+**** creerPile
+
+#+BEGIN_SRC c
+    Pile creerPile()
+  {
+    Pile p = new Pile();
+    p.l = creerListe();
+    return p;
+  }
+#+END_SRC
+
+**** estVide
+
+#+BEGIN_SRC c
+  bool estVide(Pile p)
+  {
+    return estVideListe(p.l);
+  }
+
+#+END_SRC
+
+**** empiler
+
+#+BEGIN_SRC c
+  Pile empiler(Pile p,T val)
+  {
+    insererTeteListe(p.l,val);
+    return p;
+  }
+#+END_SRC
+
+**** depiler
+
+#+BEGIN_SRC c
+  Pile depiler(Pile p)
+  {
+    supprimerTeteListe(p.l);
+    return p;
+  }
+#+END_SRC
+
+**** sommet
+
+#+BEGIN_SRC c
+  T sommet(Pile p)
+  {
+    return valeurCellule(teteListe(p.l));
+  }
+#+END_SRC
+
+*** FILE (est donc composée d'une liste l);
+
+**** creerFile
+
+#+BEGIN_SRC c
+    Pile creerFile()
+  {
+    File f = new File();
+    f.l = creerListe();
+    return f;
+  }
+#+END_SRC
+
+**** estVide
+
+#+BEGIN_SRC c
+  bool estVide(File f)
+  {
+    return estVideListe(f.l);
+  }
+
+#+END_SRC
+
+**** emfiler
+
+#+BEGIN_SRC c
+  File empiler(File f,T val)
+  {
+    insererTeteListe(f.l,val);
+    return f;
+  }
+#+END_SRC
+
+**** defiler
+
+#+BEGIN_SRC c
+  File defiler(File f)
+  {
+    Cellule derniereCellule = precedentCellule(teteListe(f.l));
+    inserersuivantCellule(precedentCellule(precedentCellule(teteListe(f.l))),teteListe(f.l));
+    free(derniereCellule);
+    return f;
+  }
+#+END_SRC
+
+**** teteFile
+
+#+BEGIN_SRC c
+  T teteFile(File f)
+  {
+    return valeurCellule(precedentCellule(teteListe(f.l)));
+  }
+#+END_SRC
+* Exo 4 
+
+*** Fonction
+
+#+BEGIN_SRC c
+    Liste inverser(Liste l)
+  {
+    Cellule precedente;
+    Cellule actuelle = teteListe(l);
+    Cellule suivante = suivantCellule(actuelle);
+  while(suivant != null)
+    {
+      precedente = actuelle;
+      actuelle = suivante;
+      suivante = suivantCellule(suivante);
+      insererCelluleSuivante(actuelle,suivante);
+    }
+   l.tete = actuelle;
+   return l;
+  }
+#+END_SRC

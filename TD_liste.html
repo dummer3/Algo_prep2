@@ -1,0 +1,1047 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-03-20 sam. 21:36 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Liste</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="cliquot" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Liste</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orge93909b">1. EXO 1</a>
+<ul>
+<li><a href="#org48c6fcf">1.1. La cellule</a>
+<ul>
+<li><a href="#orgf81a046">1.1.1. Implémentation</a></li>
+<li><a href="#org4fc205a">1.1.2. Les méthodes de la cellule</a></li>
+</ul>
+</li>
+<li><a href="#org344f4f8">1.2. QUESTION 1</a>
+<ul>
+<li><a href="#org4d21989">1.2.1. Implémentation</a></li>
+<li><a href="#orgf2b7b69">1.2.2. Les méthodes de la liste</a></li>
+</ul>
+</li>
+<li><a href="#org00d7b98">1.3. QUESTION 2</a>
+<ul>
+<li><a href="#org83bef63">1.3.1. Implémentation</a></li>
+<li><a href="#org52aef1c">1.3.2. Les méthodes de la liste (même complexité en temps que la QUESTION 1)</a></li>
+</ul>
+</li>
+<li><a href="#org10907cb">1.4. QUESTION 3</a></li>
+</ul>
+</li>
+<li><a href="#org9f3dc25">2. Exo 2</a></li>
+<li><a href="#org4b94ffc">3. Exo 3</a>
+<ul>
+<li><a href="#org2c2dfe1">3.1. QUESTION 1</a></li>
+<li><a href="#org1895cfa">3.2. QUESTION 2</a></li>
+<li><a href="#orga8880fe">3.3. QUESTION 3</a>
+<ul>
+<li><a href="#org6ebc9ad">3.3.1. PILE (est donc composée d'une liste l);</a></li>
+<li><a href="#org83cde9b">3.3.2. FILE (est donc composée d'une liste l);</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgc1c3f0d">4. Exo 4</a>
+<ul>
+<li>
+<ul>
+<li><a href="#orgc43b9ea">4.0.1. Fonction</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orge93909b" class="outline-2">
+<h2 id="orge93909b"><span class="section-number-2">1</span> EXO 1</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org48c6fcf" class="outline-3">
+<h3 id="org48c6fcf"><span class="section-number-3">1.1</span> La cellule</h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-orgf81a046" class="outline-4">
+<h4 id="orgf81a046"><span class="section-number-4">1.1.1</span> Implémentation</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<p>
+Une cellule sera implémentée de cette façon :
+</p>
+<ul class="org-ul">
+<li>Une variable de type T qui sera notre valeur à stocker.</li>
+<li>Une cellule qui représente l'index de notre cellule suivante.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org4fc205a" class="outline-4">
+<h4 id="org4fc205a"><span class="section-number-4">1.1.2</span> Les méthodes de la cellule</h4>
+<div class="outline-text-4" id="text-1-1-2">
+</div>
+<ol class="org-ol">
+<li><a id="org0e10b98"></a>créerCellule O(1)<br />
+<div class="outline-text-5" id="text-1-1-2-1">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #7CB8BB; font-weight: bold;">Cellule</span> <span style="color: #93E0E3;">creerCellule</span><span style="color: #DCDCCC;">()</span>
+<span style="color: #DCDCCC;">{</span>
+  <span style="color: #7CB8BB; font-weight: bold;">Cellule</span> <span style="color: #DFAF8F;">c</span> = new Cellule<span style="color: #BFEBBF;">()</span>;
+  c.val = null;
+  c.suiv = null;
+  <span style="color: #F0DFAF; font-weight: bold;">return</span> c;
+<span style="color: #DCDCCC;">}</span>  
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org36e7e0a"></a>valeurCellule O(1)<br />
+<div class="outline-text-5" id="text-1-1-2-2">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #7CB8BB; font-weight: bold;">T</span> <span style="color: #93E0E3;">valeurCellule</span><span style="color: #DCDCCC;">(</span><span style="color: #7CB8BB; font-weight: bold;">Cellule</span> <span style="color: #DFAF8F;">c</span><span style="color: #DCDCCC;">)</span>
+<span style="color: #DCDCCC;">{</span>
+  <span style="color: #F0DFAF; font-weight: bold;">return</span> c.val;
+<span style="color: #DCDCCC;">}</span>
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org227a9c0"></a>suivantCellule O(1)<br />
+<div class="outline-text-5" id="text-1-1-2-3">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #7CB8BB; font-weight: bold;">Cellule</span> <span style="color: #93E0E3;">suivantCellule</span><span style="color: #DCDCCC;">(</span><span style="color: #7CB8BB; font-weight: bold;">Cellule</span> <span style="color: #DFAF8F;">c</span><span style="color: #DCDCCC;">)</span>
+<span style="color: #DCDCCC;">{</span>
+  <span style="color: #F0DFAF; font-weight: bold;">return</span> c.suiv;
+<span style="color: #DCDCCC;">}</span>
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="org236a0dd"></a>insererSuivantCellule O(1)<br />
+<div class="outline-text-5" id="text-1-1-2-4">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #7CB8BB; font-weight: bold;">Cellule</span> <span style="color: #93E0E3;">insererSuivantCellule</span><span style="color: #DCDCCC;">(</span><span style="color: #7CB8BB; font-weight: bold;">Cellule</span> <span style="color: #DFAF8F;">c</span>, <span style="color: #7CB8BB; font-weight: bold;">Cellule</span> <span style="color: #DFAF8F;">s</span><span style="color: #DCDCCC;">)</span>
+<span style="color: #DCDCCC;">{</span>
+  c.suiv = s;
+  <span style="color: #F0DFAF; font-weight: bold;">return</span> s;
+<span style="color: #DCDCCC;">}</span>
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="org5ea965b"></a>dernierCellule O(1)<br />
+<div class="outline-text-5" id="text-1-1-2-5">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #7CB8BB; font-weight: bold;">Cellule</span> <span style="color: #93E0E3;">dernierCellule</span><span style="color: #DCDCCC;">(</span><span style="color: #7CB8BB; font-weight: bold;">Cellule</span> <span style="color: #DFAF8F;">c</span><span style="color: #DCDCCC;">)</span>
+<span style="color: #DCDCCC;">{</span>
+  <span style="color: #F0DFAF; font-weight: bold;">return</span> suivantCellule<span style="color: #BFEBBF;">(</span>c<span style="color: #BFEBBF;">)</span> == null;
+<span style="color: #DCDCCC;">}</span>
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+
+
+<div id="outline-container-org344f4f8" class="outline-3">
+<h3 id="org344f4f8"><span class="section-number-3">1.2</span> QUESTION 1</h3>
+<div class="outline-text-3" id="text-1-2">
+</div>
+<div id="outline-container-org4d21989" class="outline-4">
+<h4 id="org4d21989"><span class="section-number-4">1.2.1</span> Implémentation</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<p>
+La liste sera implémentée de cette façon :
+</p>
+<ul class="org-ul">
+<li>Un tableau pour stocker nos cellules.</li>
+<li>Une pile pour connaître les cellules encore vides.</li>
+<li>un entier qui nous indiquera l'index de notre première cellule.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf2b7b69" class="outline-4">
+<h4 id="orgf2b7b69"><span class="section-number-4">1.2.2</span> Les méthodes de la liste</h4>
+<div class="outline-text-4" id="text-1-2-2">
+</div>
+<ol class="org-ol">
+<li><a id="orge013282"></a>créerListe O(1)<br />
+<div class="outline-text-5" id="text-1-2-2-1">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #7CB8BB; font-weight: bold;">Liste</span> <span style="color: #93E0E3;">creerListe</span><span style="color: #DCDCCC;">(</span><span style="color: #7CB8BB; font-weight: bold;">int</span> <span style="color: #DFAF8F;">n</span><span style="color: #DCDCCC;">)</span>
+<span style="color: #DCDCCC;">{</span>
+  <span style="color: #7CB8BB; font-weight: bold;">Liste</span> <span style="color: #DFAF8F;">l</span> = new Liste<span style="color: #BFEBBF;">()</span>;
+  l.tab = Cellule<span style="color: #BFEBBF;">[</span>n<span style="color: #BFEBBF;">]</span>;
+  l.pile = creerPile<span style="color: #BFEBBF;">(</span>n<span style="color: #BFEBBF;">)</span>;
+  <span style="color: #F0DFAF; font-weight: bold;">for</span> <span style="color: #BFEBBF;">(</span><span style="color: #7CB8BB; font-weight: bold;">int</span> <span style="color: #DFAF8F;">i</span> = 0; i &lt; n; ++i<span style="color: #BFEBBF;">)</span>
+    <span style="color: #BFEBBF;">{</span>
+      empile<span style="color: #D0BF8F;">(</span>l.pile,tab<span style="color: #93E0E3;">[</span>i<span style="color: #93E0E3;">]</span><span style="color: #D0BF8F;">)</span>;
+    <span style="color: #BFEBBF;">}</span>
+  l.start = null;
+  <span style="color: #F0DFAF; font-weight: bold;">return</span> l;
+<span style="color: #DCDCCC;">}</span>
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="org3db13cd"></a>estVideListe O(1)<br />
+<div class="outline-text-5" id="text-1-2-2-2">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #7CB8BB; font-weight: bold;">bool</span> <span style="color: #93E0E3;">estVideListe</span><span style="color: #DCDCCC;">(</span><span style="color: #7CB8BB; font-weight: bold;">Liste</span> <span style="color: #DFAF8F;">l</span><span style="color: #DCDCCC;">)</span>
+<span style="color: #DCDCCC;">{</span>
+  <span style="color: #F0DFAF; font-weight: bold;">return</span> l.start = null;
+<span style="color: #DCDCCC;">}</span>  
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="org3caad7f"></a>teteList O(1)<br />
+<div class="outline-text-5" id="text-1-2-2-3">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #7CB8BB; font-weight: bold;">Cellule</span> <span style="color: #93E0E3;">teteListe</span><span style="color: #DCDCCC;">(</span><span style="color: #7CB8BB; font-weight: bold;">Liste</span> <span style="color: #DFAF8F;">l</span><span style="color: #DCDCCC;">)</span>
+<span style="color: #DCDCCC;">{</span>
+  <span style="color: #F0DFAF; font-weight: bold;">return</span> l.start;
+<span style="color: #DCDCCC;">}</span>  
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orgfb455a1"></a>insererTeteList O(1)<br />
+<div class="outline-text-5" id="text-1-2-2-4">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #7CB8BB; font-weight: bold;">Liste</span> <span style="color: #93E0E3;">insererTeteListe</span><span style="color: #DCDCCC;">(</span><span style="color: #7CB8BB; font-weight: bold;">Liste</span> <span style="color: #DFAF8F;">l</span>,<span style="color: #7CB8BB; font-weight: bold;">T</span> <span style="color: #DFAF8F;">val</span><span style="color: #DCDCCC;">)</span>
+<span style="color: #DCDCCC;">{</span>
+  <span style="color: #F0DFAF; font-weight: bold;">if</span><span style="color: #BFEBBF;">(</span><span style="color: #F0DFAF; font-weight: bold;">!</span>estVide<span style="color: #D0BF8F;">(</span>l.pile<span style="color: #D0BF8F;">)</span><span style="color: #BFEBBF;">)</span>
+    <span style="color: #BFEBBF;">{</span>
+      <span style="color: #7CB8BB; font-weight: bold;">Cellule</span> <span style="color: #DFAF8F;">nouveauStart</span> = sommet<span style="color: #D0BF8F;">(</span>l.pile<span style="color: #D0BF8F;">)</span>;
+      nouveauStart.val = val;
+      insererSuivantCellule<span style="color: #D0BF8F;">(</span>nouveauStart,l.start<span style="color: #D0BF8F;">)</span>;
+      l.start = nouveauStart;
+      depiler<span style="color: #D0BF8F;">(</span>l.pile<span style="color: #D0BF8F;">)</span>;
+    <span style="color: #BFEBBF;">}</span>
+  <span style="color: #F0DFAF; font-weight: bold;">return</span> l;
+<span style="color: #DCDCCC;">}</span>
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org73a3b69"></a>supprimerTeteListe O(1)<br />
+<div class="outline-text-5" id="text-1-2-2-5">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #7CB8BB; font-weight: bold;">Liste</span> <span style="color: #93E0E3;">supprimerTeteListe</span><span style="color: #DCDCCC;">(</span><span style="color: #7CB8BB; font-weight: bold;">Liste</span> <span style="color: #DFAF8F;">l</span><span style="color: #DCDCCC;">)</span>
+<span style="color: #DCDCCC;">{</span>
+  <span style="color: #F0DFAF; font-weight: bold;">if</span><span style="color: #BFEBBF;">(</span><span style="color: #F0DFAF; font-weight: bold;">!</span>estPlein<span style="color: #D0BF8F;">(</span>l.pile<span style="color: #D0BF8F;">)</span><span style="color: #BFEBBF;">)</span>
+    <span style="color: #BFEBBF;">{</span>
+      empiler<span style="color: #D0BF8F;">(</span>l.pile,l.start<span style="color: #D0BF8F;">)</span>;
+      l.start = suivantCellule<span style="color: #D0BF8F;">(</span>l.start<span style="color: #D0BF8F;">)</span>;
+    <span style="color: #BFEBBF;">}</span>
+  <span style="color: #F0DFAF; font-weight: bold;">return</span> l;
+<span style="color: #DCDCCC;">}</span>
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orgffca9b4"></a>tailleListe O(n)<br />
+<div class="outline-text-5" id="text-1-2-2-6">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #7CB8BB; font-weight: bold;">int</span> <span style="color: #93E0E3;">tailleListe</span><span style="color: #DCDCCC;">(</span><span style="color: #7CB8BB; font-weight: bold;">Liste</span> <span style="color: #DFAF8F;">l</span><span style="color: #DCDCCC;">)</span>
+<span style="color: #DCDCCC;">{</span>
+  <span style="color: #7CB8BB; font-weight: bold;">int</span> <span style="color: #DFAF8F;">size</span> = 0;
+  <span style="color: #7CB8BB; font-weight: bold;">Cellule</span> <span style="color: #DFAF8F;">celluleActuelle</span> = teteListe<span style="color: #BFEBBF;">(</span>l<span style="color: #BFEBBF;">)</span>;
+  <span style="color: #F0DFAF; font-weight: bold;">while</span> <span style="color: #BFEBBF;">(</span>celluleActuelle != null<span style="color: #BFEBBF;">)</span>
+    <span style="color: #BFEBBF;">{</span>
+      size++;
+    <span style="color: #BFEBBF;">}</span>
+
+  <span style="color: #F0DFAF; font-weight: bold;">return</span> size;
+<span style="color: #DCDCCC;">}</span>  
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="org3dbc037"></a>queue O(1)<br />
+<div class="outline-text-5" id="text-1-2-2-7">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #7CB8BB; font-weight: bold;">Liste</span> <span style="color: #93E0E3;">queue</span><span style="color: #DCDCCC;">(</span><span style="color: #7CB8BB; font-weight: bold;">Liste</span> <span style="color: #DFAF8F;">l</span><span style="color: #DCDCCC;">)</span>
+<span style="color: #DCDCCC;">{</span>
+  <span style="color: #7CB8BB; font-weight: bold;">Liste</span> <span style="color: #DFAF8F;">retour</span> = creerListe<span style="color: #BFEBBF;">(</span>n-1<span style="color: #BFEBBF;">)</span>;
+  retour.start = suivantCellule<span style="color: #BFEBBF;">(</span>teteListe<span style="color: #D0BF8F;">(</span>l<span style="color: #D0BF8F;">)</span><span style="color: #BFEBBF;">)</span>;
+  <span style="color: #F0DFAF; font-weight: bold;">return</span> retour;
+<span style="color: #DCDCCC;">}</span>
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org2dcd36f"></a>obtenirElement O(i)<br />
+<div class="outline-text-5" id="text-1-2-2-8">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #7CB8BB; font-weight: bold;">Cellule</span> <span style="color: #93E0E3;">obtenirElement</span><span style="color: #DCDCCC;">(</span><span style="color: #7CB8BB; font-weight: bold;">Liste</span> <span style="color: #DFAF8F;">l</span>,<span style="color: #7CB8BB; font-weight: bold;">int</span> <span style="color: #DFAF8F;">i</span><span style="color: #DCDCCC;">)</span>
+<span style="color: #DCDCCC;">{</span>
+  <span style="color: #7CB8BB; font-weight: bold;">Cellule</span> <span style="color: #DFAF8F;">celluleActuelle</span> = teteListe<span style="color: #BFEBBF;">(</span>l<span style="color: #BFEBBF;">)</span>;
+  <span style="color: #F0DFAF; font-weight: bold;">while</span><span style="color: #BFEBBF;">(</span>celluleAtuelle != null &amp;&amp; i &gt; 0<span style="color: #BFEBBF;">)</span>
+    <span style="color: #BFEBBF;">{</span>
+      i--;
+      celluleActuelle = suivantCellule<span style="color: #D0BF8F;">(</span>celluleActuelle<span style="color: #D0BF8F;">)</span>;
+    <span style="color: #BFEBBF;">}</span>
+  <span style="color: #F0DFAF; font-weight: bold;">return</span> valeurCellule<span style="color: #BFEBBF;">(</span>celluleActuelle<span style="color: #BFEBBF;">)</span>;
+
+<span style="color: #DCDCCC;">}</span>
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org8710322"></a>insererElement O(i)<br />
+<div class="outline-text-5" id="text-1-2-2-9">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #7CB8BB; font-weight: bold;">Liste</span> <span style="color: #93E0E3;">insererElement</span><span style="color: #DCDCCC;">(</span><span style="color: #7CB8BB; font-weight: bold;">Liste</span> <span style="color: #DFAF8F;">l</span>,<span style="color: #7CB8BB; font-weight: bold;">T</span> <span style="color: #DFAF8F;">val</span>,<span style="color: #7CB8BB; font-weight: bold;">int</span> <span style="color: #DFAF8F;">index</span><span style="color: #DCDCCC;">)</span>
+<span style="color: #DCDCCC;">{</span>
+  <span style="color: #F0DFAF; font-weight: bold;">if</span><span style="color: #BFEBBF;">(</span>index == 0<span style="color: #BFEBBF;">)</span>
+    <span style="color: #BFEBBF;">{</span>
+      insererTeteListe<span style="color: #D0BF8F;">(</span>l,val<span style="color: #D0BF8F;">)</span>;
+    <span style="color: #BFEBBF;">}</span>
+  <span style="color: #F0DFAF; font-weight: bold;">else</span> <span style="color: #BFEBBF;">{</span>
+    <span style="color: #F0DFAF; font-weight: bold;">if</span><span style="color: #D0BF8F;">(</span><span style="color: #F0DFAF; font-weight: bold;">!</span>estVide<span style="color: #93E0E3;">(</span>l.pile<span style="color: #93E0E3;">)</span><span style="color: #D0BF8F;">)</span>
+      <span style="color: #D0BF8F;">{</span>
+        <span style="color: #7CB8BB; font-weight: bold;">Cellule</span> <span style="color: #DFAF8F;">celluleActuelle</span> = teteListe<span style="color: #93E0E3;">(</span>l<span style="color: #93E0E3;">)</span>;
+        <span style="color: #F0DFAF; font-weight: bold;">while</span> <span style="color: #93E0E3;">(</span>dernierCellule<span style="color: #9FC59F;">(</span>celluleActuelle<span style="color: #9FC59F;">)</span> &amp;&amp; index &gt; 1<span style="color: #93E0E3;">)</span> <span style="color: #93E0E3;">{</span>
+          index--;
+          celluleActuelle = suivantCellule<span style="color: #9FC59F;">(</span>celluleActuelle<span style="color: #9FC59F;">)</span>;
+        <span style="color: #93E0E3;">}</span>
+        <span style="color: #7CB8BB; font-weight: bold;">Cellule</span> <span style="color: #DFAF8F;">celluleSuivante</span> = suivantCellule<span style="color: #93E0E3;">(</span>celluleActuelle<span style="color: #93E0E3;">)</span>;
+        insererSuivantCellule<span style="color: #93E0E3;">(</span>celluleActuelle,sommet<span style="color: #9FC59F;">(</span>l.pile<span style="color: #9FC59F;">)</span><span style="color: #93E0E3;">)</span>;
+        depiler<span style="color: #93E0E3;">(</span>l.pile<span style="color: #93E0E3;">)</span>;
+        suivantCellule<span style="color: #93E0E3;">(</span>celluleActuelle<span style="color: #93E0E3;">)</span>.val = val;
+        insererSuivantCellule<span style="color: #93E0E3;">(</span>suivantCellule<span style="color: #9FC59F;">(</span>celluleActuelle<span style="color: #9FC59F;">)</span>,celluleSuivante<span style="color: #93E0E3;">)</span>;
+      <span style="color: #D0BF8F;">}</span>
+  <span style="color: #BFEBBF;">}</span>
+  <span style="color: #F0DFAF; font-weight: bold;">return</span> l;
+<span style="color: #DCDCCC;">}</span>
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orgf21ac08"></a>supprimerElement O(i)<br />
+<div class="outline-text-5" id="text-1-2-2-10">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #7CB8BB; font-weight: bold;">Liste</span> <span style="color: #93E0E3;">supprimerElement</span><span style="color: #DCDCCC;">(</span><span style="color: #7CB8BB; font-weight: bold;">Liste</span> <span style="color: #DFAF8F;">l</span>,<span style="color: #7CB8BB; font-weight: bold;">int</span> <span style="color: #DFAF8F;">index</span><span style="color: #DCDCCC;">)</span>
+<span style="color: #DCDCCC;">{</span>
+  <span style="color: #F0DFAF; font-weight: bold;">if</span><span style="color: #BFEBBF;">(</span>index == 0<span style="color: #BFEBBF;">)</span>
+    <span style="color: #BFEBBF;">{</span>
+      <span style="color: #F0DFAF; font-weight: bold;">return</span> supprimerTeteListe<span style="color: #D0BF8F;">(</span>l<span style="color: #D0BF8F;">)</span>;
+    <span style="color: #BFEBBF;">}</span>
+  <span style="color: #F0DFAF; font-weight: bold;">else</span> <span style="color: #BFEBBF;">{</span>
+    <span style="color: #7CB8BB; font-weight: bold;">Cellule</span> <span style="color: #DFAF8F;">celluleActuelle</span> = teteListe<span style="color: #D0BF8F;">(</span>l<span style="color: #D0BF8F;">)</span>;
+    <span style="color: #F0DFAF; font-weight: bold;">while</span><span style="color: #D0BF8F;">(</span>dernierCellule<span style="color: #93E0E3;">(</span>celluleActuelle<span style="color: #93E0E3;">)</span> != null &amp;&amp; i &gt; 1<span style="color: #D0BF8F;">)</span>
+      <span style="color: #D0BF8F;">{</span>
+        i--;
+        celluleActuelle = suivantCellule<span style="color: #93E0E3;">(</span>celluleActuelle<span style="color: #93E0E3;">)</span>;
+      <span style="color: #D0BF8F;">}</span>
+    <span style="color: #F0DFAF; font-weight: bold;">if</span> <span style="color: #D0BF8F;">(</span>index == 1 &amp;&amp; <span style="color: #F0DFAF; font-weight: bold;">!</span>estPlein<span style="color: #93E0E3;">(</span>l.pile<span style="color: #93E0E3;">)</span><span style="color: #D0BF8F;">)</span> <span style="color: #D0BF8F;">{</span>
+      <span style="color: #7CB8BB; font-weight: bold;">Cellule</span> <span style="color: #DFAF8F;">celluleASupprimer</span> = suivantCellule<span style="color: #93E0E3;">(</span>celluleActuelle<span style="color: #93E0E3;">)</span>;
+      insererSuivantCellule<span style="color: #93E0E3;">(</span>celluleActuelle,suivantCellule<span style="color: #9FC59F;">(</span>celluleASupprimer<span style="color: #9FC59F;">)</span><span style="color: #93E0E3;">)</span>;
+      empiler<span style="color: #93E0E3;">(</span>celluleASupprimer<span style="color: #93E0E3;">)</span>;
+    <span style="color: #D0BF8F;">}</span>
+    <span style="color: #F0DFAF; font-weight: bold;">return</span> l;
+  <span style="color: #BFEBBF;">}</span>
+<span style="color: #DCDCCC;">}</span>
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+
+
+
+<div id="outline-container-org00d7b98" class="outline-3">
+<h3 id="org00d7b98"><span class="section-number-3">1.3</span> QUESTION 2</h3>
+<div class="outline-text-3" id="text-1-3">
+</div>
+<div id="outline-container-org83bef63" class="outline-4">
+<h4 id="org83bef63"><span class="section-number-4">1.3.1</span> Implémentation</h4>
+<div class="outline-text-4" id="text-1-3-1">
+<p>
+La liste sera implémentée de cette façon :
+</p>
+<ul class="org-ul">
+<li>Une seule cellule qui représentera la tête de notre tableau.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org52aef1c" class="outline-4">
+<h4 id="org52aef1c"><span class="section-number-4">1.3.2</span> Les méthodes de la liste (même complexité en temps que la QUESTION 1)</h4>
+<div class="outline-text-4" id="text-1-3-2">
+</div>
+<ol class="org-ol">
+<li><a id="org9880266"></a>créerListe()<br />
+<div class="outline-text-5" id="text-1-3-2-1">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #7CB8BB; font-weight: bold;">Liste</span> <span style="color: #93E0E3;">creerListe</span><span style="color: #DCDCCC;">()</span>
+<span style="color: #DCDCCC;">{</span>
+  <span style="color: #7CB8BB; font-weight: bold;">Liste</span> <span style="color: #DFAF8F;">l</span> = new Liste<span style="color: #BFEBBF;">()</span>;
+  l.tete = null;
+  <span style="color: #F0DFAF; font-weight: bold;">return</span> l;
+<span style="color: #DCDCCC;">}</span>
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="org0a692ff"></a>estVideListe<br />
+<div class="outline-text-5" id="text-1-3-2-2">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #7CB8BB; font-weight: bold;">bool</span> <span style="color: #93E0E3;">estVideListe</span><span style="color: #DCDCCC;">(</span><span style="color: #7CB8BB; font-weight: bold;">Liste</span> <span style="color: #DFAF8F;">l</span><span style="color: #DCDCCC;">)</span>
+<span style="color: #DCDCCC;">{</span>
+  <span style="color: #F0DFAF; font-weight: bold;">return</span> teteListe<span style="color: #BFEBBF;">(</span>l<span style="color: #BFEBBF;">)</span> == null;
+<span style="color: #DCDCCC;">}</span>  
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="org1d128bf"></a>teteListe<br />
+<div class="outline-text-5" id="text-1-3-2-3">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #7CB8BB; font-weight: bold;">Cellule</span> <span style="color: #93E0E3;">teteListe</span><span style="color: #DCDCCC;">(</span><span style="color: #7CB8BB; font-weight: bold;">Liste</span> <span style="color: #DFAF8F;">l</span><span style="color: #DCDCCC;">)</span>
+<span style="color: #DCDCCC;">{</span>
+  <span style="color: #F0DFAF; font-weight: bold;">return</span> l.tete;
+<span style="color: #DCDCCC;">}</span>  
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org884d59e"></a>insererTeteListe<br />
+<div class="outline-text-5" id="text-1-3-2-4">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #7CB8BB; font-weight: bold;">Liste</span> <span style="color: #93E0E3;">insererTeteListe</span><span style="color: #DCDCCC;">(</span><span style="color: #7CB8BB; font-weight: bold;">Liste</span> <span style="color: #DFAF8F;">l</span>,<span style="color: #7CB8BB; font-weight: bold;">T</span> <span style="color: #DFAF8F;">val</span><span style="color: #DCDCCC;">)</span>
+<span style="color: #DCDCCC;">{</span>
+  <span style="color: #7CB8BB; font-weight: bold;">Cellule</span> <span style="color: #DFAF8F;">ancienneTete</span> = teteListe<span style="color: #BFEBBF;">(</span>l<span style="color: #BFEBBF;">)</span>;
+  l.tete = creerCellule<span style="color: #BFEBBF;">()</span>;
+  l.tete.val = val;
+  insererSuivantCellule<span style="color: #BFEBBF;">(</span>teteListe<span style="color: #D0BF8F;">(</span>l<span style="color: #D0BF8F;">)</span>,ancienneTete<span style="color: #BFEBBF;">)</span>;
+  <span style="color: #F0DFAF; font-weight: bold;">return</span> l;
+<span style="color: #DCDCCC;">}</span>
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org2dfb4f8"></a>supprimerTeteListe<br />
+<div class="outline-text-5" id="text-1-3-2-5">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #7CB8BB; font-weight: bold;">Liste</span> <span style="color: #93E0E3;">supprimerTeteListe</span><span style="color: #DCDCCC;">(</span><span style="color: #7CB8BB; font-weight: bold;">Liste</span> <span style="color: #DFAF8F;">l</span><span style="color: #DCDCCC;">)</span>
+<span style="color: #DCDCCC;">{</span>
+  <span style="color: #7CB8BB; font-weight: bold;">Cellule</span> <span style="color: #DFAF8F;">nouvelleTete</span>;
+  <span style="color: #F0DFAF; font-weight: bold;">if</span> <span style="color: #BFEBBF;">(</span>teteListe<span style="color: #D0BF8F;">(</span>l<span style="color: #D0BF8F;">)</span> != null<span style="color: #BFEBBF;">)</span> <span style="color: #BFEBBF;">{</span>
+    nouvelleTete = suivantCellule<span style="color: #D0BF8F;">(</span>teteListe<span style="color: #93E0E3;">(</span>l<span style="color: #93E0E3;">)</span><span style="color: #D0BF8F;">)</span>;
+  <span style="color: #BFEBBF;">}</span>
+  <span style="color: #F0DFAF; font-weight: bold;">else</span>
+    <span style="color: #BFEBBF;">{</span>
+      nouvelleTete = null;
+    <span style="color: #BFEBBF;">}</span>
+  free<span style="color: #BFEBBF;">(</span>teteListe<span style="color: #D0BF8F;">(</span>l<span style="color: #D0BF8F;">)</span><span style="color: #BFEBBF;">)</span>;
+  l.tete = nouvelleTete; 
+  <span style="color: #F0DFAF; font-weight: bold;">return</span> l;
+<span style="color: #DCDCCC;">}</span>
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org6d61f51"></a>tailleListe<br />
+<div class="outline-text-5" id="text-1-3-2-6">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #7CB8BB; font-weight: bold;">int</span> <span style="color: #93E0E3;">tailleListe</span><span style="color: #DCDCCC;">(</span><span style="color: #7CB8BB; font-weight: bold;">Liste</span> <span style="color: #DFAF8F;">l</span><span style="color: #DCDCCC;">)</span>
+<span style="color: #DCDCCC;">{</span>
+  <span style="color: #7CB8BB; font-weight: bold;">int</span> <span style="color: #DFAF8F;">size</span> = 0;
+  <span style="color: #7CB8BB; font-weight: bold;">Cellule</span> <span style="color: #DFAF8F;">celluleActuelle</span> = teteListe<span style="color: #BFEBBF;">(</span>l<span style="color: #BFEBBF;">)</span>;
+  <span style="color: #F0DFAF; font-weight: bold;">while</span> <span style="color: #BFEBBF;">(</span>celluleActuelle != null<span style="color: #BFEBBF;">)</span>
+    <span style="color: #BFEBBF;">{</span>
+      size++;
+    <span style="color: #BFEBBF;">}</span>
+
+  <span style="color: #F0DFAF; font-weight: bold;">return</span> size;
+<span style="color: #DCDCCC;">}</span>  
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="org0a6727e"></a>queue<br />
+<div class="outline-text-5" id="text-1-3-2-7">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #7CB8BB; font-weight: bold;">Liste</span> <span style="color: #93E0E3;">queue</span><span style="color: #DCDCCC;">(</span><span style="color: #7CB8BB; font-weight: bold;">Liste</span> <span style="color: #DFAF8F;">l</span><span style="color: #DCDCCC;">)</span>
+<span style="color: #DCDCCC;">{</span>
+  <span style="color: #7CB8BB; font-weight: bold;">Liste</span> <span style="color: #DFAF8F;">retour</span> = creerListe<span style="color: #BFEBBF;">()</span>;
+  retour.tete = suivantCellule<span style="color: #BFEBBF;">(</span>teteListe<span style="color: #D0BF8F;">(</span>l<span style="color: #D0BF8F;">)</span><span style="color: #BFEBBF;">)</span>;
+  <span style="color: #F0DFAF; font-weight: bold;">return</span> retour;
+<span style="color: #DCDCCC;">}</span>
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org0bfab73"></a>obtenirElement<br />
+<div class="outline-text-5" id="text-1-3-2-8">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #7CB8BB; font-weight: bold;">Cellule</span> <span style="color: #93E0E3;">obtenirElement</span><span style="color: #DCDCCC;">(</span><span style="color: #7CB8BB; font-weight: bold;">Liste</span> <span style="color: #DFAF8F;">l</span>,<span style="color: #7CB8BB; font-weight: bold;">int</span> <span style="color: #DFAF8F;">i</span><span style="color: #DCDCCC;">)</span>
+<span style="color: #DCDCCC;">{</span>
+  <span style="color: #7CB8BB; font-weight: bold;">Cellule</span> <span style="color: #DFAF8F;">celluleActuelle</span> = teteListe<span style="color: #BFEBBF;">(</span>l<span style="color: #BFEBBF;">)</span>;
+  <span style="color: #F0DFAF; font-weight: bold;">while</span><span style="color: #BFEBBF;">(</span>celluleAtuelle != null &amp;&amp; i &gt; 0<span style="color: #BFEBBF;">)</span>
+    <span style="color: #BFEBBF;">{</span>
+      i--;
+      celluleActuelle = suivantCellule<span style="color: #D0BF8F;">(</span>celluleActuelle<span style="color: #D0BF8F;">)</span>;
+    <span style="color: #BFEBBF;">}</span>
+  <span style="color: #F0DFAF; font-weight: bold;">return</span> valeurCellule<span style="color: #BFEBBF;">(</span>celluleActuelle<span style="color: #BFEBBF;">)</span>;
+
+<span style="color: #DCDCCC;">}</span>
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orgdc369b7"></a>insererElement<br />
+<div class="outline-text-5" id="text-1-3-2-9">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #7CB8BB; font-weight: bold;">Liste</span> <span style="color: #93E0E3;">insererElement</span><span style="color: #DCDCCC;">(</span><span style="color: #7CB8BB; font-weight: bold;">Liste</span> <span style="color: #DFAF8F;">l</span>,<span style="color: #7CB8BB; font-weight: bold;">T</span> <span style="color: #DFAF8F;">val</span>,<span style="color: #7CB8BB; font-weight: bold;">int</span> <span style="color: #DFAF8F;">index</span><span style="color: #DCDCCC;">)</span>
+<span style="color: #DCDCCC;">{</span>
+  <span style="color: #F0DFAF; font-weight: bold;">if</span><span style="color: #BFEBBF;">(</span>index == 0<span style="color: #BFEBBF;">)</span>
+    <span style="color: #BFEBBF;">{</span>
+      insererTeteListe<span style="color: #D0BF8F;">(</span>l,val<span style="color: #D0BF8F;">)</span>;
+    <span style="color: #BFEBBF;">}</span>
+  <span style="color: #F0DFAF; font-weight: bold;">else</span> <span style="color: #BFEBBF;">{</span>
+    <span style="color: #7CB8BB; font-weight: bold;">Cellule</span> <span style="color: #DFAF8F;">celluleActuelle</span> = teteListe<span style="color: #D0BF8F;">(</span>l<span style="color: #D0BF8F;">)</span>;
+    <span style="color: #F0DFAF; font-weight: bold;">while</span> <span style="color: #D0BF8F;">(</span>dernierCellule<span style="color: #93E0E3;">(</span>celluleActuelle<span style="color: #93E0E3;">)</span> &amp;&amp; index &gt; 1<span style="color: #D0BF8F;">)</span> <span style="color: #D0BF8F;">{</span>
+      index--;
+      celluleActuelle = suivantCellule<span style="color: #93E0E3;">(</span>celluleActuelle<span style="color: #93E0E3;">)</span>;
+    <span style="color: #D0BF8F;">}</span>
+    <span style="color: #7CB8BB; font-weight: bold;">Cellule</span> <span style="color: #DFAF8F;">celluleSuivante</span> = suivantCellule<span style="color: #D0BF8F;">(</span>celluleActuelle<span style="color: #D0BF8F;">)</span>;
+    insererSuivantCellule<span style="color: #D0BF8F;">(</span>celluleActuelle,creerCellule<span style="color: #93E0E3;">()</span><span style="color: #D0BF8F;">)</span>;
+    suivantCellule<span style="color: #D0BF8F;">(</span>celluleActuelle<span style="color: #D0BF8F;">)</span>.val = val;
+    insererSuivantCellule<span style="color: #D0BF8F;">(</span>suivantCellule<span style="color: #93E0E3;">(</span>celluleActuelle<span style="color: #93E0E3;">)</span>,celluleSuivante<span style="color: #D0BF8F;">)</span>
+  <span style="color: #BFEBBF;">}</span>
+  <span style="color: #F0DFAF; font-weight: bold;">return</span> l;
+<span style="color: #DCDCCC;">}</span>
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org86a76d8"></a>supprimerElement<br />
+<div class="outline-text-5" id="text-1-3-2-10">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #7CB8BB; font-weight: bold;">Liste</span> <span style="color: #93E0E3;">supprimerElement</span><span style="color: #DCDCCC;">(</span><span style="color: #7CB8BB; font-weight: bold;">Liste</span> <span style="color: #DFAF8F;">l</span>,<span style="color: #7CB8BB; font-weight: bold;">int</span> <span style="color: #DFAF8F;">index</span><span style="color: #DCDCCC;">)</span>
+<span style="color: #DCDCCC;">{</span>
+  <span style="color: #F0DFAF; font-weight: bold;">if</span><span style="color: #BFEBBF;">(</span>index == 0<span style="color: #BFEBBF;">)</span>
+    <span style="color: #BFEBBF;">{</span>
+      <span style="color: #F0DFAF; font-weight: bold;">return</span> supprimerTeteListe<span style="color: #D0BF8F;">(</span>l<span style="color: #D0BF8F;">)</span>;
+    <span style="color: #BFEBBF;">}</span>
+  <span style="color: #F0DFAF; font-weight: bold;">else</span> <span style="color: #BFEBBF;">{</span>
+    <span style="color: #7CB8BB; font-weight: bold;">Cellule</span> <span style="color: #DFAF8F;">celluleActuelle</span> = teteListe<span style="color: #D0BF8F;">(</span>l<span style="color: #D0BF8F;">)</span>;
+    <span style="color: #F0DFAF; font-weight: bold;">while</span><span style="color: #D0BF8F;">(</span>dernierCellule<span style="color: #93E0E3;">(</span>celluleActuelle<span style="color: #93E0E3;">)</span> != null &amp;&amp; i &gt; 1<span style="color: #D0BF8F;">)</span>
+      <span style="color: #D0BF8F;">{</span>
+        i--;
+        celluleActuelle = suivantCellule<span style="color: #93E0E3;">(</span>celluleActuelle<span style="color: #93E0E3;">)</span>;
+      <span style="color: #D0BF8F;">}</span>
+    <span style="color: #F0DFAF; font-weight: bold;">if</span> <span style="color: #D0BF8F;">(</span>index == 1<span style="color: #D0BF8F;">)</span> <span style="color: #D0BF8F;">{</span>
+      <span style="color: #7CB8BB; font-weight: bold;">Cellule</span> <span style="color: #DFAF8F;">celluleASupprimer</span> = suivantCellule<span style="color: #93E0E3;">(</span>celluleActuelle<span style="color: #93E0E3;">)</span>;
+      insererSuivantCellule<span style="color: #93E0E3;">(</span>celluleActuelle,suivantCellule<span style="color: #9FC59F;">(</span>celluleASupprimer<span style="color: #9FC59F;">)</span><span style="color: #93E0E3;">)</span>;
+      free<span style="color: #93E0E3;">(</span>celluleASupprimer<span style="color: #93E0E3;">)</span>;
+    <span style="color: #D0BF8F;">}</span>
+    <span style="color: #F0DFAF; font-weight: bold;">return</span> l;
+  <span style="color: #BFEBBF;">}</span>
+<span style="color: #DCDCCC;">}</span>
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+
+
+
+<div id="outline-container-org10907cb" class="outline-3">
+<h3 id="org10907cb"><span class="section-number-3">1.4</span> QUESTION 3</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+Pour avoir une liste chainée bi-directionelle, il faudrait rajouter dans la cellule une variable prec pour stocker la position de la cellule précédente (de la même façon que pour la variable suiv)
+ainsi que des méthodes precedenteCellule() et insertionPrecedenteCellule() qui vont modifier de la même façon que suiv la variable prec.
+</p>
+
+<p>
+De plus partout ou on a modifié notre variable suiv, il faudrait modifier la variable prec de la cellule qui suit (sauf si le suivant est null) (ex insertionSuivantCellule(c1,c2) -&gt; insertionPrecedentCellule(c2,c1)).
+</p>
+
+<p>
+Pour la liste chainée circulaire (pas bi-directionelle) il faudra remplacer tous nos null par la valeur de la tete de liste (par exemple lorsqu'on on regardait si notre cellule et la dernière, il faudra faire suivantCellule(celluleActuelle) == teteListe(l)). Il faudra aussi bien penser lors de l'ajout d'un element qui se retrouve être le dernier ou le premier de la liste qu'on doit avoir la variable suiv du dernier bien modifié, de même lorqu'on supprime la tête (ce qui va consister à modifier inserer/supprimerTeteListe et rajouter une condition lorsque on ajoute/supprime le dernier element si on a défini les méthodes obtenir/supprimerElement comme dans la question 2 ainsi que la méthode queue) .  
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9f3dc25" class="outline-2">
+<h2 id="org9f3dc25"><span class="section-number-2">2</span> Exo 2</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+cette algorithme va renverser une liste.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4b94ffc" class="outline-2">
+<h2 id="org4b94ffc"><span class="section-number-2">3</span> Exo 3</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Tout en O(1);
+</p>
+</div>
+<div id="outline-container-org2c2dfe1" class="outline-3">
+<h3 id="org2c2dfe1"><span class="section-number-3">3.1</span> QUESTION 1</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+Le seul moyen pour avoir une concaténation de deux liste en temps O(1) et d'avoir des listes circulaires. En effet on va faire : 
+(on suppose que insererPrecedentCellule ~= insererSuivantCellule 
+ et precedentCellule ~= suivantCellule.
+ la seule différence étant qu'il modifie la valeur qui représente la cellule précédente). 
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c">  <span style="color: #7CB8BB; font-weight: bold;">void</span> <span style="color: #93E0E3;">concatenation</span><span style="color: #DCDCCC;">(</span><span style="color: #7CB8BB; font-weight: bold;">Liste</span> <span style="color: #DFAF8F;">l1</span>,<span style="color: #7CB8BB; font-weight: bold;">Liste</span> <span style="color: #DFAF8F;">l2</span><span style="color: #DCDCCC;">)</span>
+<span style="color: #DCDCCC;">{</span>
+  insererSuivantCellule<span style="color: #BFEBBF;">(</span>precedentCellule<span style="color: #D0BF8F;">(</span>teteListe<span style="color: #93E0E3;">(</span>l1<span style="color: #93E0E3;">)</span><span style="color: #D0BF8F;">)</span>,teteListe<span style="color: #D0BF8F;">(</span>l2<span style="color: #D0BF8F;">)</span><span style="color: #BFEBBF;">)</span>;
+  insererSuivantCellule<span style="color: #BFEBBF;">(</span>precedentCellule<span style="color: #D0BF8F;">(</span>teteListe<span style="color: #93E0E3;">(</span>l2<span style="color: #93E0E3;">)</span><span style="color: #D0BF8F;">)</span>,teteListe<span style="color: #D0BF8F;">(</span>l1<span style="color: #D0BF8F;">)</span><span style="color: #BFEBBF;">)</span>;
+
+  <span style="color: #7CB8BB; font-weight: bold;">Cellule</span> <span style="color: #DFAF8F;">ancienDernierL1</span> = precedentCellule<span style="color: #BFEBBF;">(</span>teteListe<span style="color: #D0BF8F;">(</span>l1<span style="color: #D0BF8F;">)</span><span style="color: #BFEBBF;">)</span>;
+
+  insererPrecedentCellule<span style="color: #BFEBBF;">(</span>teteListe<span style="color: #D0BF8F;">(</span>l1<span style="color: #D0BF8F;">)</span>,precedentCellule<span style="color: #D0BF8F;">(</span>teteListe<span style="color: #93E0E3;">(</span>l2<span style="color: #93E0E3;">)</span><span style="color: #D0BF8F;">)</span><span style="color: #BFEBBF;">)</span>;
+  insererPrecedentCellule<span style="color: #BFEBBF;">(</span>teteListe<span style="color: #D0BF8F;">(</span>l2<span style="color: #D0BF8F;">)</span>,ancienDernierL1<span style="color: #BFEBBF;">)</span>;
+<span style="color: #DCDCCC;">}</span> 
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1895cfa" class="outline-3">
+<h3 id="org1895cfa"><span class="section-number-3">3.2</span> QUESTION 2</h3>
+</div>
+<div id="outline-container-orga8880fe" class="outline-3">
+<h3 id="orga8880fe"><span class="section-number-3">3.3</span> QUESTION 3</h3>
+<div class="outline-text-3" id="text-3-3">
+</div>
+<div id="outline-container-org6ebc9ad" class="outline-4">
+<h4 id="org6ebc9ad"><span class="section-number-4">3.3.1</span> PILE (est donc composée d'une liste l);</h4>
+<div class="outline-text-4" id="text-3-3-1">
+</div>
+<ol class="org-ol">
+<li><a id="orgff9be6a"></a>creerPile<br />
+<div class="outline-text-5" id="text-3-3-1-1">
+<div class="org-src-container">
+<pre class="src src-c">  <span style="color: #7CB8BB; font-weight: bold;">Pile</span> <span style="color: #93E0E3;">creerPile</span><span style="color: #DCDCCC;">()</span>
+<span style="color: #DCDCCC;">{</span>
+  <span style="color: #7CB8BB; font-weight: bold;">Pile</span> <span style="color: #DFAF8F;">p</span> = new Pile<span style="color: #BFEBBF;">()</span>;
+  p.l = creerListe<span style="color: #BFEBBF;">()</span>;
+  <span style="color: #F0DFAF; font-weight: bold;">return</span> p;
+<span style="color: #DCDCCC;">}</span>
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="org3c6150c"></a>estVide<br />
+<div class="outline-text-5" id="text-3-3-1-2">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #7CB8BB; font-weight: bold;">bool</span> <span style="color: #93E0E3;">estVide</span><span style="color: #DCDCCC;">(</span><span style="color: #7CB8BB; font-weight: bold;">Pile</span> <span style="color: #DFAF8F;">p</span><span style="color: #DCDCCC;">)</span>
+<span style="color: #DCDCCC;">{</span>
+  <span style="color: #F0DFAF; font-weight: bold;">return</span> estVideListe<span style="color: #BFEBBF;">(</span>p.l<span style="color: #BFEBBF;">)</span>;
+<span style="color: #DCDCCC;">}</span>
+
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="org7fe379e"></a>empiler<br />
+<div class="outline-text-5" id="text-3-3-1-3">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #7CB8BB; font-weight: bold;">Pile</span> <span style="color: #93E0E3;">empiler</span><span style="color: #DCDCCC;">(</span><span style="color: #7CB8BB; font-weight: bold;">Pile</span> <span style="color: #DFAF8F;">p</span>,<span style="color: #7CB8BB; font-weight: bold;">T</span> <span style="color: #DFAF8F;">val</span><span style="color: #DCDCCC;">)</span>
+<span style="color: #DCDCCC;">{</span>
+  insererTeteListe<span style="color: #BFEBBF;">(</span>p.l,val<span style="color: #BFEBBF;">)</span>;
+  <span style="color: #F0DFAF; font-weight: bold;">return</span> p;
+<span style="color: #DCDCCC;">}</span>
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="org5180020"></a>depiler<br />
+<div class="outline-text-5" id="text-3-3-1-4">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #7CB8BB; font-weight: bold;">Pile</span> <span style="color: #93E0E3;">depiler</span><span style="color: #DCDCCC;">(</span><span style="color: #7CB8BB; font-weight: bold;">Pile</span> <span style="color: #DFAF8F;">p</span><span style="color: #DCDCCC;">)</span>
+<span style="color: #DCDCCC;">{</span>
+  supprimerTeteListe<span style="color: #BFEBBF;">(</span>p.l<span style="color: #BFEBBF;">)</span>;
+  <span style="color: #F0DFAF; font-weight: bold;">return</span> p;
+<span style="color: #DCDCCC;">}</span>
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="orgb1b752b"></a>sommet<br />
+<div class="outline-text-5" id="text-3-3-1-5">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #7CB8BB; font-weight: bold;">T</span> <span style="color: #93E0E3;">sommet</span><span style="color: #DCDCCC;">(</span><span style="color: #7CB8BB; font-weight: bold;">Pile</span> <span style="color: #DFAF8F;">p</span><span style="color: #DCDCCC;">)</span>
+<span style="color: #DCDCCC;">{</span>
+  <span style="color: #F0DFAF; font-weight: bold;">return</span> valeurCellule<span style="color: #BFEBBF;">(</span>teteListe<span style="color: #D0BF8F;">(</span>p.l<span style="color: #D0BF8F;">)</span><span style="color: #BFEBBF;">)</span>;
+<span style="color: #DCDCCC;">}</span>
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+
+<div id="outline-container-org83cde9b" class="outline-4">
+<h4 id="org83cde9b"><span class="section-number-4">3.3.2</span> FILE (est donc composée d'une liste l);</h4>
+<div class="outline-text-4" id="text-3-3-2">
+</div>
+<ol class="org-ol">
+<li><a id="org2bac814"></a>creerFile<br />
+<div class="outline-text-5" id="text-3-3-2-1">
+<div class="org-src-container">
+<pre class="src src-c">  <span style="color: #7CB8BB; font-weight: bold;">Pile</span> <span style="color: #93E0E3;">creerFile</span><span style="color: #DCDCCC;">()</span>
+<span style="color: #DCDCCC;">{</span>
+  <span style="color: #7CB8BB; font-weight: bold;">File</span> <span style="color: #DFAF8F;">f</span> = new File<span style="color: #BFEBBF;">()</span>;
+  f.l = creerListe<span style="color: #BFEBBF;">()</span>;
+  <span style="color: #F0DFAF; font-weight: bold;">return</span> f;
+<span style="color: #DCDCCC;">}</span>
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="orgbf2f8f1"></a>estVide<br />
+<div class="outline-text-5" id="text-3-3-2-2">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #7CB8BB; font-weight: bold;">bool</span> <span style="color: #93E0E3;">estVide</span><span style="color: #DCDCCC;">(</span><span style="color: #7CB8BB; font-weight: bold;">File</span> <span style="color: #DFAF8F;">f</span><span style="color: #DCDCCC;">)</span>
+<span style="color: #DCDCCC;">{</span>
+  <span style="color: #F0DFAF; font-weight: bold;">return</span> estVideListe<span style="color: #BFEBBF;">(</span>f.l<span style="color: #BFEBBF;">)</span>;
+<span style="color: #DCDCCC;">}</span>
+
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="org1237ff1"></a>emfiler<br />
+<div class="outline-text-5" id="text-3-3-2-3">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #7CB8BB; font-weight: bold;">File</span> <span style="color: #93E0E3;">empiler</span><span style="color: #DCDCCC;">(</span><span style="color: #7CB8BB; font-weight: bold;">File</span> <span style="color: #DFAF8F;">f</span>,<span style="color: #7CB8BB; font-weight: bold;">T</span> <span style="color: #DFAF8F;">val</span><span style="color: #DCDCCC;">)</span>
+<span style="color: #DCDCCC;">{</span>
+  insererTeteListe<span style="color: #BFEBBF;">(</span>f.l,val<span style="color: #BFEBBF;">)</span>;
+  <span style="color: #F0DFAF; font-weight: bold;">return</span> f;
+<span style="color: #DCDCCC;">}</span>
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="org39565df"></a>defiler<br />
+<div class="outline-text-5" id="text-3-3-2-4">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #7CB8BB; font-weight: bold;">File</span> <span style="color: #93E0E3;">defiler</span><span style="color: #DCDCCC;">(</span><span style="color: #7CB8BB; font-weight: bold;">File</span> <span style="color: #DFAF8F;">f</span><span style="color: #DCDCCC;">)</span>
+<span style="color: #DCDCCC;">{</span>
+  <span style="color: #7CB8BB; font-weight: bold;">Cellule</span> <span style="color: #DFAF8F;">derniereCellule</span> = precedentCellule<span style="color: #BFEBBF;">(</span>teteListe<span style="color: #D0BF8F;">(</span>f.l<span style="color: #D0BF8F;">)</span><span style="color: #BFEBBF;">)</span>;
+  inserersuivantCellule<span style="color: #BFEBBF;">(</span>precedentCellule<span style="color: #D0BF8F;">(</span>precedentCellule<span style="color: #93E0E3;">(</span>teteListe<span style="color: #9FC59F;">(</span>f.l<span style="color: #9FC59F;">)</span><span style="color: #93E0E3;">)</span><span style="color: #D0BF8F;">)</span>,teteListe<span style="color: #D0BF8F;">(</span>f.l<span style="color: #D0BF8F;">)</span><span style="color: #BFEBBF;">)</span>;
+  free<span style="color: #BFEBBF;">(</span>derniereCellule<span style="color: #BFEBBF;">)</span>;
+  <span style="color: #F0DFAF; font-weight: bold;">return</span> f;
+<span style="color: #DCDCCC;">}</span>
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="org4c85dda"></a>teteFile<br />
+<div class="outline-text-5" id="text-3-3-2-5">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #7CB8BB; font-weight: bold;">T</span> <span style="color: #93E0E3;">teteFile</span><span style="color: #DCDCCC;">(</span><span style="color: #7CB8BB; font-weight: bold;">File</span> <span style="color: #DFAF8F;">f</span><span style="color: #DCDCCC;">)</span>
+<span style="color: #DCDCCC;">{</span>
+  <span style="color: #F0DFAF; font-weight: bold;">return</span> valeurCellule<span style="color: #BFEBBF;">(</span>precedentCellule<span style="color: #D0BF8F;">(</span>teteListe<span style="color: #93E0E3;">(</span>f.l<span style="color: #93E0E3;">)</span><span style="color: #D0BF8F;">)</span><span style="color: #BFEBBF;">)</span>;
+<span style="color: #DCDCCC;">}</span>
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc1c3f0d" class="outline-2">
+<h2 id="orgc1c3f0d"><span class="section-number-2">4</span> Exo 4</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-orgc43b9ea" class="outline-4">
+<h4 id="orgc43b9ea"><span class="section-number-4">4.0.1</span> Fonction</h4>
+<div class="outline-text-4" id="text-4-0-1">
+<div class="org-src-container">
+<pre class="src src-c">  <span style="color: #7CB8BB; font-weight: bold;">Liste</span> <span style="color: #93E0E3;">inverser</span><span style="color: #DCDCCC;">(</span><span style="color: #7CB8BB; font-weight: bold;">Liste</span> <span style="color: #DFAF8F;">l</span><span style="color: #DCDCCC;">)</span>
+<span style="color: #DCDCCC;">{</span>
+  <span style="color: #7CB8BB; font-weight: bold;">Cellule</span> <span style="color: #DFAF8F;">precedente</span>;
+  <span style="color: #7CB8BB; font-weight: bold;">Cellule</span> <span style="color: #DFAF8F;">actuelle</span> = teteListe<span style="color: #BFEBBF;">(</span>l<span style="color: #BFEBBF;">)</span>;
+  <span style="color: #7CB8BB; font-weight: bold;">Cellule</span> <span style="color: #DFAF8F;">suivante</span> = suivantCellule<span style="color: #BFEBBF;">(</span>actuelle<span style="color: #BFEBBF;">)</span>;
+<span style="color: #F0DFAF; font-weight: bold;">while</span><span style="color: #BFEBBF;">(</span>suivant != null<span style="color: #BFEBBF;">)</span>
+  <span style="color: #BFEBBF;">{</span>
+    precedente = actuelle;
+    actuelle = suivante;
+    suivante = suivantCellule<span style="color: #D0BF8F;">(</span>suivante<span style="color: #D0BF8F;">)</span>;
+    insererCelluleSuivante<span style="color: #D0BF8F;">(</span>actuelle,suivante<span style="color: #D0BF8F;">)</span>;
+  <span style="color: #BFEBBF;">}</span>
+ l.tete = actuelle;
+ <span style="color: #F0DFAF; font-weight: bold;">return</span> l;
+<span style="color: #DCDCCC;">}</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: cliquot</p>
+<p class="date">Created: 2021-03-20 sam. 21:36</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

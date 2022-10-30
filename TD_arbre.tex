@@ -1,0 +1,642 @@
+% Created 2021-03-28 dim. 16:48
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{listings}
+\usepackage[a4paper,left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\author{cliquot}
+\date{\today}
+\title{}
+\hypersetup{
+ pdfauthor={cliquot},
+ pdftitle={},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 26.3 (Org mode 9.1.9)}, 
+ pdflang={English}}
+\begin{document}
+
+\tableofcontents
+
+\section{Exo n°1}
+\label{sec:org342d7a2}
+
+\subsection{Question n°1}
+\label{sec:org2396f59}
+
+\subsubsection{Implémentation}
+\label{sec:orge7b5b9e}
+
+Un arbre sera donc composé : 
+\begin{itemize}
+\item un tableau (tab)
+\item La taille du tableau.
+\item L'index/Valeur de la racine (sinon on pourrait le retrouver en parcourant le tableau à la recherche de la case contenant la valeur -1 (Soit une comp. temp. O(n) au pire cas, n étant la taille du tableau)).
+\item Les noeuds seront donc représentés par leur index.
+\end{itemize}
+
+\subsubsection{CreerArbre O(1)}
+\label{sec:org1bef875}
+
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+Arbre CreerArbre(int taille)
+{
+  Arbre a = new Arbre();
+  a.tab = int[taille];
+  a.taille = taille;
+  a.racine = -1; //On ne sait pas encore l'index de la racine lors de l'initialisation de l'arbre
+  return a;
+}
+\end{lstlisting}
+
+\subsubsection{Racine O(1) vu qu'on stock son index}
+\label{sec:org4279b04}
+
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+  int Racine(Arbre a)
+{
+  return a.racine;
+}
+\end{lstlisting}
+
+\subsubsection{FilsNoeud O(n)}
+\label{sec:org8e0cc66}
+
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+Liste FilsNoeud(Arbre a,int indexNoeud)
+{
+  Liste l = CreerListe();
+  for (int i = 0; i < a.taille; i ++)
+    {
+      if(a.tab[i] == indexNoeud)
+        {
+          l.insererTeteListe(i);
+        }
+    }
+  return l;
+}
+\end{lstlisting}
+
+\subsubsection{SontFreres O(1)}
+\label{sec:org5f5ea74}
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+bool SontFreres(Arbre a, int noeud_x, int noeud_y)
+{
+  return a.tab[noued_x] == a.tab[noued_y]; 
+}
+\end{lstlisting}
+
+\subsubsection{Hauteur O(\(n^2\))}
+\label{sec:org1c0e40e}
+
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+int Hauteur(Arbre a)
+{
+  int h = 0;
+  for (int i = 0; i < a.taille; i++)
+    {
+      int noeudActuelle = i;
+      int pere = a.tab[i];
+      int h_actuelle = 0;
+      while (noeudActuelle != Racine(a))
+        {
+          noeudActuelle = pere;
+          pere = a.tab[pere];
+          h_actuelle++;
+        }
+      if(h_actuelle > h)
+        {
+          h = h_actuelle;
+        }
+    }
+  return h;
+}  
+\end{lstlisting}
+
+\subsubsection{SousArbre \(O(n^2)\)}
+\label{sec:org41543bc}
+
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+    Arbre SousArbre(Arbre a,int noeud_x)
+  {
+    Arbre b = CreerArbre(a.taille)
+
+     for (int i = 0; i < a.taille; i++)
+      {
+        int noeudActuelle = i;
+        int pere = a.tab[i];
+        int sauv_pere = pere;
+        while (noeudActuelle != noeud_x || noeudActuelle != racine(a))
+          {
+            noeudActuelle = pere;
+            pere = a.tab[pere];
+          }
+      if(i == noeud_x)
+        {
+          b.tab[i] = -1;
+        }
+      else if(noeudActuelle == noeud_x)
+        {
+          b.tab[i] = sauv_pere;
+        }
+      }
+return b
+  }
+\end{lstlisting}
+
+\subsection{Question n°2}
+\label{sec:orge270f56}
+
+Si on utilise cette nouvelle implémentation, on aura (n est la taille de l'arbre): 
+\begin{itemize}
+\item toujours O(1) pour la création de l'arbre
+\item O(1) pour savoir si 2 noeuds sont frères (on compare juste les pères)
+\item O(i) pour la liste des fils : i étant le nbr de fils, pour cela il suffira de stocker dans une liste le premier fils du noeud, puis de récupérer le frère de son premier fils et ceux tant que frères n'est pas null.
+\item O(1) pour récupérer la racine (notre arbre sera composé que d'un unique noeud représentant la racine, il suffit donc de retourner cette variable)
+\item O(n) au pire cas --> O(h) pour la hauteur, h étant justement la hauteur de l'arbre, en effet il suffit d'incrémenter une variable tout en parcourant l'arbre de père en fils à l'aide d'une boucle while (la condition et si fils == null et dans ce cas la variable à comme valeur de base 0).
+\item O(n) au pire cas --> O(a) : a étant la taille du sous arbre souhaité. (On va devoir recopier dans un nouvelle arbre chaque noeud (qui seront eux aussi des copies pour éviter de modifier l'arbre original) avec une première boucle qui va récupérer chaque premier fils et pour chacun de ces noeuds, on va récupérer tous ses frères sans oublier le noeud x qui aura comme père -1).
+\end{itemize}
+
+\section{Exo n°2}
+\label{sec:org0dcd688}
+
+\subsection{Question n°1}
+\label{sec:org6d8da8f}
+
+On a : 
+-8
+-3->8
+-3->(8 7)
+-3->(8->9 7)
+-3->(4->(9 8) 7)
+
+\subsection{Question n°2}
+\label{sec:org4e79a65}
+On pourrait utiliser un tableau si on connait la taille max atteignable de notre tas min, cependant à la différence de la table PERE ou la valeur des noeuds était l'index, ici notre tas min peut avoir plusieurs fois la même valeur et donc nous allons être obligé de stocker à la fois le pere mais aussi la valeur du noeud, mais cela nous permet de mettre n'importe quel noeud dans n'importe quel case (on pourrait aussi stocker filsG et filsD mais dans ce cas on se rapproche plus de la question suivante).
+
+\subsection{Question n°3}
+\label{sec:org8935bda}
+
+Vu qu'on ne connait pas la place prise par notre tas, utilisait un tableau statique serait une mauvaise idée vu que si notre tableau est trop petit, il faudra tout recopier dans un tableau plus grand (ce qui va prendre beaucoup de temps). Une meilleure solution serait de stocker dans le tas une seule Cellule (la racine), et chaque cellule à accès à son père, son filsG et son filsD (qui sont des cellules) et une valeur .
+
+\subsection{Question n°4}
+\label{sec:org75afc45}
+Type du dessus en rajoutant aussi le nombre de noeud (la taille) de la cellule et sa hauteur (pour bien avoir une complexité O(log(n)) pour l'insertion);
+
+\subsection{Question n°5}
+\label{sec:orge1f27dd}
+\subsubsection{construire-tas O(1)}
+\label{sec:orgddba57a}
+
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+  Tas construire-tas()
+{
+  Tas t = new Tas();
+  t.racine.pere = -1;
+  return t;
+}
+\end{lstlisting}
+
+\subsubsection{inserer O(log(n))}
+\label{sec:org3d8f4ed}
+
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+Tas inserer(Tas t,T val)
+{
+  Cellule a = t.racine;
+  while (FilsGauche(a) != null || FilsDroit(a) != null)
+    {
+      Cellule g = FilsGauche(a);
+      Cellule d = FilsDroit(a);
+
+      if((d.nbrNoeud == pow(2,d.hauteur+1)-1) && g.hauteur == d.hauteur)
+        {
+          a.nbrNoeud++;
+          a = FilsGauche(a);
+        }
+      else
+        {
+          a.nbrNoeud++;
+          a = FilsDroit(a);
+        }
+    }
+  a.nbrNoeud++;
+  a.hauteur++;
+  Cellule h = a;
+  while(h.pere != null)
+    {
+      if (h.pere.hauteur < h.hauteur +1)
+        {
+          h.pere.hauteur = h.hauteur+1;
+        }
+      h = h.pere;
+    }
+  if(FilsGauche(a) == null)
+    {
+
+      a.filsGauche = CreerCellule();
+      FilsGauche(a).valeur = val+1; 
+      FilsGauche(a).pere = a; 
+      remplacerCle(FilsGauche(a),val);
+    }
+  else
+    {
+      a.filsDroit = CreerCellule();
+      FilsDroit(a).valeur = val+1; 
+      FilsDroit(a).pere = a; 
+      remplacerCle(FilsDroit(a),val);
+    }
+  return t;
+}  
+\end{lstlisting}
+
+\subsubsection{entasser-min O(h) = O(log(n))}
+\label{sec:org4e9427a}
+
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+Tas entasserMin (Tas t,cellule r) 
+{
+  Cellule min;
+  Cellule g = FilsGauche(r);
+  Cellule d = FilsDroite(r);
+  if (g != NULL && g.valeur <= r.valeur)
+    {
+      min = g;
+    }
+  else
+    {
+      min = r;
+    }
+  if (d != NULL and d.valeur <= min.valeur)
+    {
+      min = d;
+    }
+  if (min != r)
+    {
+      T tempo = min.valeur;
+      min.valeur = r.valeur;
+      r.valeur = tempo;
+      entasserMin(t,min);
+    }
+  return t;
+}
+\end{lstlisting}
+
+\subsubsection{minimum O(1)}
+\label{sec:org92076ce}
+
+Juste retourner la valeur de la racine.
+
+\subsubsection{remplacerCle O(h(x)) ou O(h-h(x))}
+\label{sec:org55f25e8}
+
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+Tas remplacerCle(Tas t,Cellule r,T val)
+{
+  if(r.valeur < val)
+    {
+      r.valeur = val;
+      entasserMin(t,r);
+    }
+
+  else
+    {
+      if (r.valeur > val)
+        {
+          r.valeur = r.pere.valeur;
+          r.pere.valeur = val + 1;
+          remplacerCle(r.pere,val);
+        }
+    }
+return t;
+}
+\end{lstlisting}
+
+\subsubsection{retirerElement O(h)}
+\label{sec:org6af416f}
+
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+
+retirerElement(Tas t,cellule r)
+{
+  Cellule c = t.racine;
+  while (filsGauche(c) != null && filsDroite(c) != null) {
+
+    if(FilsGauche(c).nbrNoeud == pow(2,FilsGauche(c).hauteur+1)-1)
+      {
+        c.nbrNoeud--;
+        c = FilsDroite(c);
+      }
+    else 
+      {
+        c.nbrNoeud--;
+        c = FilsGauche(c);
+      }
+  }
+
+  if(c == FilsGauche(Pere(c)))
+    {
+      Pere(c).hauteur--;
+    }
+  r.valeur = c.valeur;
+  free(c);
+  entasserMin(t,r);
+}
+\end{lstlisting}
+
+
+
+
+
+\subsection{Question n°6}
+\label{sec:orgd5d03ac}
+
+Pour récupérer la maximum dans un tas min, il va falloir prendre le maximum entre toutes les feuilles, c'est à dire une complexité O(n).
+
+\subsection{Question n°7 O(n*log(n))}
+\label{sec:orga03d8e9}
+
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+T[] tri(Tas t)
+{
+  n = t.racine.nbrNoeud;
+  T[] = new T[n];
+  for (int i = 0; i < n; i++)
+    {
+      t[i] = minimum(t);
+      retirerElement(t,t.racine);
+    }
+  return t;
+}
+\end{lstlisting}
+
+
+\subsection{Question n°8}
+\label{sec:org7110faf}
+
+Les opérations de la file de priorité sont : insérer,maximum,extraire-max et remplacer, ce qui correspond respectivement avec un tas-max à insérer, maximum, retirerElement(t,t.racine), remplacerCle. 
+
+\section{Exo n° 3}
+\label{sec:org58ea2d2}
+
+\subsection{Question n° 1}
+\label{sec:orga220405}
+
+Il est assez simple de représenter une expression arithmétique avec un arbre binaire, (surtout avec la notation polonaise --> (2*3) devient (* 2 3)) On va stocker dans la racine la dernière opérations à effectuer, dans son sous arbre gauche l'opération à effectuer avant celle ci et qui va donner l'opérante gauche, de même avec avec la partie droite pour l'opérante droite. Et ceux juqu'au feuilles ou on aura les constantes. Il nous suffira donc d'appeler récursivement depuis la racine et ceux jusqu'au opérations avant les feuilles une méthode \textbf{résolution},puis remonter petit à petit, si on suit cette méthode il n'y a même pas besoin de spécifier les priorités.
+
+\subsection{Question n°2}
+\label{sec:org33125d2}
+
+On va utiliser un parcours en profondeur(suffixe). Si on utilise un parcours préfixe, ou infixe on ne va pas connaître l' opérantes de droite (infixe) voir les deux (préfixe). De même pour le parcours en longueur.
+
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+float eval(Arbre a)
+{
+  float g,d,retour;
+  if(FilsGauche(a).valeur == *operations*)
+    {
+      g = eval(ArbreGauche(a));
+    }
+  else
+    {
+      g = FilsGauche(a).valeur;
+    }
+  if(FilsDroit(a).valeur == *operations*)
+    {
+      d = eval(ArbreDroit(a));
+    }
+  else
+    {
+      d = FilsGauche(a).valeur;
+    }
+  if(a.racine.valeur == '+')
+    {
+      retour = g+d;
+    }
+  return retour;
+} 
+
+\end{lstlisting}
+
+\subsection{Question n°3}
+\label{sec:org4eb962f}
+
+Ce sera le même principes avec au noeud soit True Ou false et comme noeud interne Soit OR, AND (2 fils) soit NOT (1 fils), la seule différence est que notre arbre binaire n'est pas forcément parfait ni presque parfait.
+
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+bool eval(Arbre a)
+{
+  bool g,d,retour;
+  if(FilsGauche(a).valeur == *operations*)
+    {
+      g = eval(ArbreGauche(a));
+    }
+  else
+    {
+      g = FilsGauche(a).valeur;
+    }
+  if(FilsDroit(a) != null)
+    {
+      if( FilsDroit(a).valeur == *operations*)
+        {
+          d = eval(ArbreDroit(a));
+        }
+      else
+        {
+          d = FilsGauche(a).valeur;
+        }
+    }
+  if(a.racine.valeur == "AND")
+    {
+      retour = g && d;
+    }
+  if(a.racine.valeur == "NOT")
+    {
+      retour = not g;
+    }
+  return retour;
+} 
+\end{lstlisting}
+
+\section{Exo n°4}
+\label{sec:org3d7c0b2}
+
+\subsection{Question n°1}
+\label{sec:org38a40ae}
+
+Récurrence ::: 
+
+Initialisation :::
+hauteur 0, c'est à dire que x = racine donc il ne peut y avoir qu'un chemin (x -> x)
+
+Hérédité :::
+Supposons que la propriété est vrai pour tout x de hauteur <= n, c'est à dire qu'il n'existe qu'un seul chemin entre x et la racine r que l'on appellera chm.
+Prenons \(x_1\) fils de x, \(x_1\) a donc de hauteur n+1, Prouvons qu'il n'existe qu'un seul chemin entre \(x_1\) et r.
+La seule direction possible pour \(x_1\) allant vers la racine est de passer par son père x, ensuite il ne pourra prendre que le chemin uniqur chm, donc proposition vérifié pour \(x_1\).
+
+\subsection{Question n°2}
+\label{sec:org59f252b}
+
+Récurrence ::: 
+
+Initialisation :::
+noeud 1, c'est à dire qu'il n'y a que la racine, qui est une feuille.
+
+Hérédité :::
+Supposons que la propriété est vrai pour tout arbre ayant <= n noeud, c'est à dire qu'il y a au moins une feuille dans l'arbre T que l'on va notée f.
+Ajoutons lui un nouveau noeud x, Prouvons qu'il la propriété est toujours vérifier.
+Si x est fils de d, alors f ne sera plus feuille mais x deviendra feuille puisque qu'il n'a pas d'enfants. Sinon f restera feuille. 
+
+\subsection{Question n°3}
+\label{sec:org91be3b2}
+
+Récurrence ::: 
+
+Initialisation :::
+noeud 1, c'est à dire qu'il n'y a que la racine r
+On a donc V = \{r\} et E = \(\emptyset\) => |V| -1 = |E|
+
+Hérédité :::
+Supposons que la propriété est vrai pour tout arbre ayant <= n noeud.
+Ajoutons lui un nouveau noeud x, Prouvons que la propriété est toujours vérifier.
+Notons p le père de x, V' et E' l'ensemble et relations binaires avant l'ajout de x
+On à donc maintenant \(V = V' \bigcup {x}\) et \(E = E' \bigcup (p,x)\).
+Donc |V| = |V'| +1 et |E| = |E'| +1 (|V| = |E|).    
+
+\subsection{Question n°4}
+\label{sec:org99170df}
+
+Récurrence ::: 
+
+Initialisation :::
+hauteur = 0, c'est à dire qu'il y a 1 feuille pour 1 noeud (1 = 2*1-1)
+
+Hérédité :::
+Supposons que la propriété est vrai pour tout arbre ayant une hauteur <=  h.
+Prouvons que la propriété est toujours vérifier pour tout arbre binaire de hauteur > h.
+Soit T l'arbre de hauteur h+1 et soit f le nbr de feuilles de l'arbre de hauteur h.
+On à donc maintenant 2*f nbr de feuilles (noté \(f_1\)) (vu que chaque noeud précédent à maintenant 2 fils) et comme noeuds totale 2*f-1 + \(f_1\).
+Soit nbr de noeuds = \(f_1\) -1 +\(f_1\) => 2*\$f\(_{\text{1}}\)\$-1
+
+\subsection{Question n°5}
+\label{sec:org01447ba}
+
+Récurrence ::: 
+
+Initialisation :::
+hauteur = 0, c'est à dire qu'il y a qu'une feuille (la racine) (1 <= \(2^0\) = 1)
+
+Hérédité :::
+Supposons que la propriété est vrai pour tout arbre ayant une hauteur <=  h.
+Prouvons que la propriété est toujours vérifier pour tout arbre binaire de hauteur > h.
+Soit T l'arbre de hauteur h+1 et soit f le nbr de feuilles de l'arbre de hauteur h.
+Le nbr de feuilles \(f_1\) de l'arbre T sera au maximum f*2 (puisque l'arbre est binaires)
+Donc f \(\le\) \(2^h\) ==> 2*f \(\le\) \(2^{h+1}\) ==> \(f_1 \leq 2^{hauteur(T)}\) 
+
+\section{Exo n°5}
+\label{sec:org78686f8}
+
+\subsection{Question n°1}
+\label{sec:org17ccf0d}
+
+\subsubsection{12345678 et 53247681 :}
+\label{sec:org44f32b6}
+
+\begin{itemize}
+\item L'arbre binaire n'existe pas
+\end{itemize}
+
+\subsubsection{12345678 et 432527861}
+\label{sec:orgca3620a}
+
+\begin{itemize}
+\item L'arbre binaire existe (le parcours en longueur donne : 1/ 2 6/ 3 5 7 8/4)
+\end{itemize}
+
+
+
+\subsection{Question n°2}
+\label{sec:orgeff16e5}
+
+\subsubsection{Construction Arbre :}
+\label{sec:orgb6dfd60}
+\begin{itemize}
+\item J'ai pris la notation de python pour obtenir des sous-String, sinon il faudrait créer une fonction qui renvoie une sous string en fonction de l'index de départ et d'arrivé et sauvegarder la taille à chaque fois.
+\item FindIndexDans(String,char) va renvoyer la position du char dans le String en parcourant le string
+\item Dans cette exo un noeud est représenté par un entier valeur et par 2 noeuds (filsG et filsD), pas besoin du père ici.
+\item Un arbre est donc seulement un noeud que l'on appelle racine.
+\end{itemize}
+\lstset{morekeywords={*,include,Liste,Cellule,Pile,File},backgroundcolor=\color[rgb]{0.96,0.95,0.98},keywordstyle=\color[rgb]{0.627,0.126,0.941},commentstyle=\color[rgb]{0.233,0.745,0.233},stringstyle=\color[rgb]{01,0,0},keepspaces=true,deletekeywords={ps,scan},basicstyle=\ttfamily,numbers=left,breaklines=true,frame=lines,tabsize=4,language=C,label= ,caption= ,captionpos=b}
+\begin{lstlisting}
+Arbre CreationRacine(String pre,String post)
+{
+Arbre a = CreerArbre();
+a.racine.val = pre[0];
+CreationArbreInterne(a.racine,pre[1:],post[:-1])
+return a;
+}
+
+void  CreationArbeInterne(Noeud n,String pre,String post)
+{
+ if(taille(pre) > 1)
+   {
+     g = CreerNoeud();
+     g.val = pre[0];
+     n.filsG = g;
+     d = CreerNoeud();
+     d.val = post[-1];
+     n.filsD = d;
+
+     int posInterPost = FindIndexDans(post,pre[0]);
+     int posInterPre = FindIndexDans(pre,post[-1]);
+
+     CreationArbreInterne(g,pre[1:postInterPre],post[0:posInterPost]);
+     CreationArbreInterne(d,pre[postInterPre+1:],post[postInerPost+1:-1]);
+   }
+ else if (taille(pre)> 0)
+   {
+     g = CreerNoeud();
+     g.val = pre[0];
+     n.filsG = g;
+   }
+}
+\end{lstlisting}
+
+on aurait pu avoir un probleme si notre arbre n'est pas binaire, en effet si on avait eu 12345678 et 432528761, on aurait du avoir 6 -->7 --> 8 et non pas. Il faudrait donc un peu modifier l'algo
+\begin{center}
+\begin{tabular}{|l|}
+\hline
+6 \\
+/ $\backslash$ \\
+7   8 \\
+\hline
+\end{tabular}
+\end{center}
+\end{document}
